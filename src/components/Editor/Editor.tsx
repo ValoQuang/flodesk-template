@@ -1,5 +1,5 @@
 import React from 'react';
-import "./TemplateEditor.css";
+import "./Editor.css";
 
 const TemplateEditor = () => {
   return (

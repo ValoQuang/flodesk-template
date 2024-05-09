@@ -1,6 +1,6 @@
 import "./App.css";
-import TemplateBuilder from "./components/TemplateBuilder/TemplateBuilder";
-import TemplateSelector from "./components/TemplateSelector/TemplateSelector";
+import TemplateBuilder from "./pages/TemplateBuilder";
+import TemplateSelector from "./pages/TemplateSelector";
 
 function App() {
   return (

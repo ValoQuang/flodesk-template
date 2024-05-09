@@ -1,12 +1,40 @@
 import React from "react";
-import "./TemplateDisplay.css";
+import "./Preview.css";
 
-const DisplayTemplate = () => {
+const Preview = () => {
+  const [selectEl, setSelectEl] = React.useState<string | null>(null);
+
+  const handleSelectElement = (id: string) => {
+    setSelectEl(id);
+  };
+
   return (
     <div className="templateDisplay">
-      <div style={{ width: "100%", backgroundColor: "bisque" }}>
-        <h1 id="template-header">Mock Header</h1>
-        <p id="template-paragraph">
+      <div
+        style={{
+          width: "100%",
+          borderRadius: "20px",
+        }}
+      >
+        <h1
+          style={{
+            backgroundColor:
+              selectEl === "template-header" ? "bisque" : "transparent",
+            transition: "background-color 0.3s ease",
+          }}
+          onClick={() => handleSelectElement("template-header")}
+        >
+          Mock Header
+        </h1>
+
+        <p
+          style={{
+            backgroundColor:
+              selectEl === "template-paragraph" ? "bisque" : "transparent",
+            transition: "background-color 0.3s ease",
+          }}
+          onClick={() => handleSelectElement("template-paragraph")}
+        >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
@@ -17,7 +45,14 @@ const DisplayTemplate = () => {
           Integer tincidunt.
         </p>
 
-        <p id="template-paragraph-2">
+        <p
+          style={{
+            backgroundColor:
+              selectEl === "template-paragraph-2" ? "bisque" : "transparent",
+            transition: "background-color 0.3s ease",
+          }}
+          onClick={() => handleSelectElement("template-paragraph-2")}
+        >
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus
           et magnis dis parturient montes, nascetur ridiculus mus. Donec quam
@@ -27,9 +62,10 @@ const DisplayTemplate = () => {
           venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.
           Integer tincidunt.
         </p>
+        {selectEl}
       </div>
     </div>
   );
 };
 
-export default DisplayTemplate;
+export default Preview;

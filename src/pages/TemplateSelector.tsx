@@ -1,12 +1,11 @@
-import { mockTemplates } from "../../mockData/index";
-import { Template } from "../../types";
+import { mockTemplates } from "../mockData/index";
+import { Template } from "../types";
 import "./TemplateSelector.css";
 
 const TemplateSelector: React.FC = () => {
-
-  const handleSelectTemplate  = () => {
-    console.log('click');
-  }
+  const handleSelectTemplate = () => {
+    console.log("click");
+  };
 
   return (
     <div className="templateSelector">

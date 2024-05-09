@@ -3,11 +3,13 @@ export interface Template {
   title: string;
   backgroundColor: string;
   contentWidth: string;
-  headingSettings?: ElementSettings;
-  paragraphSettings?: ElementSettings;
+  headingSettings: ElementSettings;
+  paragraphSettings: ElementSettings;
 }
 
 interface ElementSettings {
   fontSize: string;
   color: string;
+  fontWeight?: string;
+  content: string;
 }

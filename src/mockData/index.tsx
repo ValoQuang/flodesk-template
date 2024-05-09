@@ -1,50 +1,38 @@
 import { Template } from "../types";
 
-function generateRandomId() {
-  return Math.random().toString(36);
-}
-
 const mockTemplates: Template[] = [
   {
-    id: generateRandomId(),
+    id: '1',
     title: "Template One",
     backgroundColor: "#eb8080",
     contentWidth: "80%",
     headingSettings: {
       fontSize: "24px",
+      fontWeight: "Bold",
       color: "#333333",
+      content: "Header template 1",
     },
     paragraphSettings: {
       fontSize: "16px",
       color: "#666666",
+      content: "Paragraph template 1",
     },
   },
   {
-    id: generateRandomId(),
+    id: '2',
     title: "Template Two",
     backgroundColor: "#dbf07f",
-    contentWidth: "90%",
+    contentWidth: "70%",
     headingSettings: {
       fontSize: "28px",
+      fontWeight: "Bold",
       color: "#444444",
+      content: "Header template 2",
     },
     paragraphSettings: {
       fontSize: "14px",
       color: "#888888",
-    },
-  },
-  {
-    id: generateRandomId(),
-    title: "Template Three",
-    backgroundColor: "#9389ec",
-    contentWidth: "85%",
-    headingSettings: {
-      fontSize: "32px",
-      color: "#555555",
-    },
-    paragraphSettings: {
-      fontSize: "18px",
-      color: "#777777",
+      content: "Paragraph template 2",
     },
   },
 ];

@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import "./TemplateEditor.css";
 
 const TemplateEditor = () => {
   return (
-    <div>TemplateEditor
-    
+    <div className="templateEditor">
+      <h5>Template editor panel</h5>
     </div>
   )
 }

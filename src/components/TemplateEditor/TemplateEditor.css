@@ -1,0 +1,11 @@
+.templateEditor {
+    background-color: bisque;
+    border-radius: 20px;
+    height: 500px;
+    margin: 10px 10px 10px 10px;
+    padding: 5px 10px 5px 10px;
+}
+
+h5 {
+    background-color: rgb(201, 201, 232);
+}

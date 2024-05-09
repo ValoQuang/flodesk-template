@@ -1,7 +1,8 @@
 import { mockTemplates } from "../../mockData/index";
+import { Template } from "../../types";
 import "./TemplateSelector.css";
 
-const TemplateSelector = () => {
+const TemplateSelector: React.FC = () => {
 
   const handleSelectTemplate  = () => {
     console.log('click');
@@ -12,7 +13,7 @@ const TemplateSelector = () => {
       <h1>Choose a template to start</h1>
       <div className="templateSelector-container">
         {" "}
-        {mockTemplates.map((template, index) => (
+        {mockTemplates.map((template: Template, index: number) => (
           <div className="templateSelector-box" onClick={handleSelectTemplate}>
             <section
               style={{ backgroundColor: template.backgroundColor }}

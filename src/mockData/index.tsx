@@ -1,8 +1,10 @@
+import { Template } from "../types";
+
 function generateRandomId() {
-  return Math.random().toString(36).substr(2, 9); // Generate a random alphanumeric string
+  return Math.random().toString(36);
 }
 
-const mockTemplates = [
+const mockTemplates: Template[] = [
   {
     id: generateRandomId(),
     title: "Template One",

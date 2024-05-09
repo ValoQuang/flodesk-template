@@ -1,13 +1,14 @@
 import "./App.css";
-import TemplateBuilder from "./pages/TemplateBuilder";
+import { TemplateProvider } from "./AppContextProvider";
 import TemplateSelector from "./pages/TemplateSelector";
 
 function App() {
   return (
-    <div className="App">
-      <TemplateSelector />
-      <TemplateBuilder />
-    </div>
+    <TemplateProvider>
+      <div className="App">
+        <TemplateSelector />
+      </div>
+    </TemplateProvider>
   );
 }
 

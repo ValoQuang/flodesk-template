@@ -2,8 +2,8 @@ import { Template } from "../types";
 
 const mockTemplates: Template[] = [
   {
-    id: '1',
-    title: "Template One",
+    id: 'letter',
+    title: "Template Letter",
     backgroundColor: "#eb8080",
     contentWidth: "80%",
     headingSettings: {
@@ -19,8 +19,8 @@ const mockTemplates: Template[] = [
     },
   },
   {
-    id: '2',
-    title: "Template Two",
+    id: 'resume',
+    title: "Template Resume",
     backgroundColor: "#dbf07f",
     contentWidth: "70%",
     headingSettings: {

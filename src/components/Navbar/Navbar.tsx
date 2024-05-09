@@ -1,8 +1,13 @@
-import React from "react";
+import { SetStateAction } from "react";
 import "./Navbar.css";
+import { useTemplateContext } from "../../AppContextProvider";
+import { Template } from "../../types";
 
 const Navbar = () => {
-  const handleBackToTemplateSelector = () => {};
+  const { setTemplate } = useTemplateContext();
+  const handleBackToTemplateSelector = () => {
+    setTemplate(null as unknown as SetStateAction<Template>);
+  };
 
   const handleExportStaticPage = () => {};
 
@@ -12,7 +17,7 @@ const Navbar = () => {
         <h3>Template</h3>
         <section>
           {" "}
-          <button className="navbar-button">Back</button>
+          <button className="navbar-button" onClick={handleBackToTemplateSelector}>Back</button>
           <button className="navbar-button">Export</button>
         </section>
       </div>

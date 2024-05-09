@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface Template {
   id: string;
   title: string;
@@ -7,9 +9,16 @@ export interface Template {
   paragraphSettings: ElementSettings;
 }
 
-interface ElementSettings {
+export interface ElementSettings {
   fontSize: string;
   color: string;
   fontWeight?: string;
   content: string;
+}
+
+export interface TemplateContextType {
+  template: Template | null;
+  setTemplate: Dispatch<SetStateAction<Template>>;
+  updateHeadingSettings: Dispatch<SetStateAction<Template>>;
+  updateParagraphSettings: Dispatch<SetStateAction<Template>>;
 }

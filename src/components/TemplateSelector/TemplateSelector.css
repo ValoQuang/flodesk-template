@@ -1,0 +1,50 @@
+.templateSelector {
+  height: 100vh;
+}
+
+.templateSelector-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.templateSelector-box {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgb(114, 83, 83);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.templateSelector-box section {
+  flex-grow: 1;
+}
+
+.templateSelector-box:hover {
+  transform: scale(1.02);
+}
+
+@media only screen and (max-width: 600px) {
+  .templateSelector-container {
+    flex-direction: column;
+    max-width: 100%;
+    align-items: center;
+  }
+
+  h1 {
+    font-size: 16px; 
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

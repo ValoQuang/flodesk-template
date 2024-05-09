@@ -1,7 +1,13 @@
 export interface Template {
-    id: string;
-    title: string;
-    fontSize: string;
-    content: string;
-    backgroundColor: string;
+  id: string;
+  title: string;
+  backgroundColor: string;
+  contentWidth: string;
+  headingSettings?: ElementSettings;
+  paragraphSettings?: ElementSettings;
+}
+
+interface ElementSettings {
+  fontSize: string;
+  color: string;
 }

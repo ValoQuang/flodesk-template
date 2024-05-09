@@ -20,7 +20,7 @@ const Preview = () => {
     }
   };
 
-  return <>{renderTemplate()}</>;
+  return <div id="export-static-page">{renderTemplate()}</div>;
 };
 
 export default Preview;

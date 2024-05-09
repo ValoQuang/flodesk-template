@@ -15,10 +15,9 @@ export interface ElementSettings {
   fontWeight?: string;
   content: string;
 }
-
 export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;
-  updateHeadingSettings: Dispatch<SetStateAction<Template>>;
-  updateParagraphSettings: Dispatch<SetStateAction<Template>>;
+  updateHeadingSettings: Dispatch<SetStateAction<ElementSettings>>;
+  updateParagraphSettings: Dispatch<SetStateAction<ElementSettings>>;
 }

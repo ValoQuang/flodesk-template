@@ -1,10 +1,9 @@
-import { ReactNode, lazy } from "react";
+import { ReactNode } from "react";
 import { useTemplateContext } from "../AppContextProvider";
 import { mockTemplates } from "../mockData/index";
 import { Template } from "../types";
 import "./TemplateSelector.css";
-
-const TemplateBuilder = lazy(() => import("./TemplateBuilder"));
+import TemplateBuilder from "./TemplateBuilder";
 
 const TemplateSelector: React.FC = () => {
   const { template, setTemplate } = useTemplateContext();

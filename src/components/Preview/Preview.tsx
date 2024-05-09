@@ -3,6 +3,7 @@ import "./Preview.css";
 import { useTemplateContext } from "../../AppContextProvider";
 import TemplateLetter from "../../templateList/TemplateLetter";
 import TemplateResume from "../../templateList/TemplateResume";
+import "./Preview.css";
 
 const Preview = () => {
   const { template } = useTemplateContext();
@@ -13,14 +14,22 @@ const Preview = () => {
   };
 
   const renderTemplate = () => {
-    if (template?.id === "letter") {
-      return <TemplateLetter />;
-    } else {
-      return <TemplateResume />;
+    switch (template?.id) {
+      case "letter":
+        return <TemplateLetter />;
+      case "resume":
+        return <TemplateResume />;
+      // Add more cases for additional templates if needed
+      default:
+        return null; 
     }
   };
 
-  return <div id="export-static-page">{renderTemplate()}</div>;
+  return (
+    <div className="preview" id="export-static-page">
+      {renderTemplate()}
+    </div>
+  );
 };
 
 export default Preview;

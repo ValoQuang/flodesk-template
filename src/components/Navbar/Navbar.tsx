@@ -27,7 +27,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <h3>Template</h3>
+        <h3>{template?.title}</h3>
         <section>
           <button
             className="navbar-button"

@@ -1,9 +1,24 @@
-import React from 'react'
+import React from "react";
+import Navbar from "../Navbar/Navbar";
+import TemplateDisplay from "../TemplateDisplay/TemplateDisplay";
+import TemplateEditor from "../TemplateEditor/TemplateEditor";
+import "./TemplateBuilder.css";
 
 const TemplateBuilder = () => {
   return (
-    <div>TemplateBuilder</div>
-  )
-}
+    <div className="templateBuilder">
+      <Navbar />
 
-export default TemplateBuilder
+      <div className="templateBuilder-editor">
+        <section className="templateBuilder-display">
+          <TemplateDisplay />
+        </section>
+        <section className="templateBuilder-setting">
+          <TemplateEditor />
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default TemplateBuilder;

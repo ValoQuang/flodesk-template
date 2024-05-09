@@ -1,9 +1,23 @@
-import React from 'react'
+import React from "react";
+import "./Navbar.css";
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const handleBackToTemplateSelector = () => {};
 
-export default Navbar
+  const handleExportStaticPage = () => {};
+
+  return (
+    <div className="navbar">
+      <div className="navbar-container">
+        <h3>Template</h3>
+        <section>
+          {" "}
+          <button className="navbar-button">Back</button>
+          <button className="navbar-button">Export</button>
+        </section>
+      </div>
+    </div>
+  );
+};
+
+export default Navbar;

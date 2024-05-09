@@ -1,0 +1,22 @@
+.navbar {
+  width: 100%;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 5px 20px 5px 20px;
+}
+
+.navbar-container section {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-button {
+  width: 100px;
+  height: 30px;
+}

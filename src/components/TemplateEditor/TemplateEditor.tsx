@@ -1,9 +1,11 @@
 import React from 'react'
 
-const SettingBoard = () => {
+const TemplateEditor = () => {
   return (
-    <div>SettingBoard</div>
+    <div>TemplateEditor
+    
+    </div>
   )
 }
 
-export default SettingBoard
+export default TemplateEditor

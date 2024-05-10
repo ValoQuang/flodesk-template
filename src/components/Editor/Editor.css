@@ -1,7 +1,8 @@
 .templateEditor {
-    background-color: bisque;
     border-radius: 20px;
-    height: 500px;
+    border-style: solid;
+    border-width: 0.5px;
+    height: 100vh;
     margin: 10px 10px 10px 10px;
     padding: 5px 10px 5px 10px;
 }

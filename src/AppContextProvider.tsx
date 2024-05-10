@@ -22,6 +22,8 @@ export const defaultValue: TemplateContextType = {
   setTemplate: () => {},
   updateHeadingSettings: () => {},
   updateParagraphSettings: () => {},
+  updateBackgroundColor: () => {},
+  setCurrentElement: () => {},
 };
 
 const TemplateContext = createContext<TemplateContextType>(defaultValue);
@@ -29,7 +31,14 @@ const TemplateContext = createContext<TemplateContextType>(defaultValue);
 export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
+  const [currentEl, setCurrentEl] = useState<string | null>(null);
   const [template, setTemplate] = useState<Template | null>(null);
+
+  const setCurrentElement = (newEl: string) => {
+    if (template) {
+      setCurrentEl(newEl)
+    }
+  }
 
   const updateBackgroundColor = (newBackgroundColor: string) => {
     if (template) {
@@ -73,6 +82,8 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
           updateHeadingSettings,
           updateParagraphSettings,
           updateBackgroundColor,
+          setCurrentElement,
+          currentEl
         } as any
       }
     >

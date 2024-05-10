@@ -12,13 +12,13 @@ const Navbar = () => {
   const handleExportStaticPage = () => {
     const element = document.getElementById("export-static-page");
     if (element) {
-      const contentToExport = element.innerText;
-      const file = new Blob([contentToExport], { type: "text/plain" });
+      const elementHTML = element.outerHTML;
+      const file = new Blob([elementHTML], { type: "text/html" });
       const url = URL.createObjectURL(file);
       const downloadLink = document.createElement("a");
 
       downloadLink.href = url;
-      downloadLink.download = `${template?.title}.txt`;
+      downloadLink.download = `${template?.title}.html`;
       downloadLink.click();
       URL.revokeObjectURL(url);
     }

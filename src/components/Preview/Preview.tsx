@@ -1,32 +1,67 @@
-import React from "react";
+import React, { useCallback } from "react";
 import "./Preview.css";
 import { useTemplateContext } from "../../AppContextProvider";
-import TemplateLetter from "../../templateList/TemplateLetter";
-import TemplateResume from "../../templateList/TemplateResume";
+import Letter from "../../templateList/Letter/Letter";
+import Resume from "../../templateList/Resume/Resume";
 import "./Preview.css";
 
 const Preview = () => {
-  const { template } = useTemplateContext();
-  const [selectEl, setSelectEl] = React.useState<string | null>(null);
+  const { template, setCurrentElement, currentEl } = useTemplateContext();
 
-  const handleSelectElement = (id: string) => {
-    setSelectEl(id);
-  };
+  const captureClickElement = useCallback(
+    (event: any) => {
+      setCurrentElement(event.target.id);
+    },
+    [setCurrentElement]
+  );
 
-  const renderTemplate = () => {
-    switch (template?.id) {
+  const renderTemplate = useCallback(() => {
+    if (!template) return null;
+
+    const templateStyle = {
+      backgroundColor: template.backgroundColor || "white",
+      width: template.contentWidth || "100%",
+    };
+    const headerStyle = {
+      fontSize: template.headingSettings.fontSize || "16px",
+      fontWeight: template.headingSettings.fontWeight || "normal",
+      color: template.headingSettings.color || "black",
+      content: template.headingSettings.content || "",
+    };
+    const paragraphStyle = {
+      fontSize: template.paragraphSettings.fontSize || "14px",
+      fontWeight: template.paragraphSettings.fontWeight || "normal",
+      color: template.paragraphSettings.color || "black",
+      content: template.paragraphSettings.content || "",
+    };
+    switch (template.id) {
       case "letter":
-        return <TemplateLetter />;
+        return (
+          <Letter
+            templateStyle={templateStyle}
+            headerStyle={headerStyle}
+            paragraphStyle={paragraphStyle}
+            template={template}
+            currentEl={currentEl}
+          />
+        );
       case "resume":
-        return <TemplateResume />;
-      // Add more cases for additional templates if needed
+        return <Resume templateStyle={templateStyle}
+        headerStyle={headerStyle}
+        paragraphStyle={paragraphStyle}
+        template={template}
+        currentEl={currentEl}/>;
       default:
-        return null; 
+        return null;
     }
-  };
+  }, [template, currentEl]);
 
   return (
-    <div className="preview" id="export-static-page">
+    <div
+      className="preview"
+      id="export-static-page"
+      onClick={captureClickElement}
+    >
       {renderTemplate()}
     </div>
   );

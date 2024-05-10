@@ -18,6 +18,9 @@ export interface ElementSettings {
 export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;
+  updateBackgroundColor: Dispatch<SetStateAction<Template>>;
   updateHeadingSettings: Dispatch<SetStateAction<ElementSettings>>;
   updateParagraphSettings: Dispatch<SetStateAction<ElementSettings>>;
+  setCurrentElement: any;
+  currentEl?: any;
 }

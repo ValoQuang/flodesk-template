@@ -43,6 +43,7 @@ const TemplateLetter: React.FC<LetterProps> = ({
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
         height: "fit-content",
         ...templateStyle,
+        overflow: "scroll"
       }}
     >
       <header>

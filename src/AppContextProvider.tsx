@@ -20,11 +20,9 @@ export const defaultValue: TemplateContextType = {
     },
   },
   setTemplate: () => {},
-  updateHeadingSettings: () => {},
-  updateParagraphSettings: () => {},
-  updateBackgroundColor: () => {},
+  updateTemplateSettings: () => {},
   setCurrentElement: () => {},
-};
+}
 
 const TemplateContext = createContext<TemplateContextType>(defaultValue);
 
@@ -36,39 +34,16 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
 
   const setCurrentElement = (newEl: string) => {
     if (template) {
-      setCurrentEl(newEl)
-    }
-  }
-
-  const updateBackgroundColor = (newBackgroundColor: string) => {
-    if (template) {
-      setTemplate((prevTemplate) => ({
-        ...prevTemplate!,
-        backgroundColor: newBackgroundColor,
-      }));
+      setCurrentEl(newEl);
     }
   };
 
-  const updateHeadingSettings = (newHeadingSettings: ElementSettings) => {
-    if (template) {
+  const updateTemplateSettings = (settings: { property: string; value: string }) => {
+     const { property, value } = settings;
+    if (template && template.hasOwnProperty(property)) {
       setTemplate((prevTemplate) => ({
         ...prevTemplate!,
-        headingSettings: {
-          ...prevTemplate!.headingSettings,
-          ...newHeadingSettings,
-        },
-      }));
-    }
-  };
-
-  const updateParagraphSettings = (newParagraphSettings: ElementSettings) => {
-    if (template) {
-      setTemplate((prevTemplate) => ({
-        ...prevTemplate!,
-        paragraphSettings: {
-          ...prevTemplate!.paragraphSettings,
-          ...newParagraphSettings,
-        },
+        [property]: value,
       }));
     }
   };
@@ -79,11 +54,9 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
         {
           template,
           setTemplate,
-          updateHeadingSettings,
-          updateParagraphSettings,
-          updateBackgroundColor,
+          updateTemplateSettings,
           setCurrentElement,
-          currentEl
+          currentEl,
         } as any
       }
     >

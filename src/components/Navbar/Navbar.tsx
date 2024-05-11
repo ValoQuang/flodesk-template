@@ -9,6 +9,7 @@ const Navbar = () => {
 
   const handleBackToTemplateSelector = () => {
     setTemplate(null as unknown as SetStateAction<Template>);
+    setCurrentElement(null);
   };
 
   const handleExportStaticPage = () => {
@@ -38,6 +39,7 @@ const Navbar = () => {
   const handleSaveTemplate = () => {
     const foundIndex = templateList.findIndex((x) => x.id == template?.id);
     templateList[foundIndex] = template!;
+    window.alert("Your work is saved.")
   };
 
   const renderButton = (title: string, onClick: MouseEventHandler<HTMLButtonElement> | undefined) => {

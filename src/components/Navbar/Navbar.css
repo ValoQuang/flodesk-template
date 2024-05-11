@@ -22,4 +22,10 @@
   cursor: pointer;
   border-radius: 5px;
   border-width: 0.5px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.navbar-button:hover {
+  background-color: #e0e0e0;
+  border-color: #999;
 }

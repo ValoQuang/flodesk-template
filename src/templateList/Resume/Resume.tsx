@@ -31,8 +31,8 @@ const TemplateResume: React.FC<TemplateProps> = ({
       className="resume-container"
       id="template"
       style={{
-        borderStyle: currentElement === "resume" ? "solid" : "",
-        borderWidth: currentElement === "resume" ? "1px" : "",
+        borderStyle: currentElement === "template" ? "solid" : "",
+        borderWidth: currentElement === "template" ? "1px" : "",
         ...templateStyle,
       }}
     >

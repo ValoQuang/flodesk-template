@@ -47,7 +47,7 @@ const PageSetting = () => {
         <input
           type="range"
           min="10"
-          max="100"
+          max="90"
           onChange={handleContentWidth}
           value={parseInt(template?.contentWidth!)}
         ></input>

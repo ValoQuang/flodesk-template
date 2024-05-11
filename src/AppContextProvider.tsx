@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-import { ElementSettings, Template, TemplateContextType } from "./types";
+import { Template, TemplateContextType } from "./types";
 
 export const defaultValue: TemplateContextType = {
   templateList: [],
@@ -31,7 +31,7 @@ const TemplateContext = createContext<TemplateContextType>(defaultValue);
 export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentElement, setCurrentEl] = useState<string | null>(null);
+  const [currentElement, setCurrentEl] = useState<string | null>("template");
   const [template, setTemplate] = useState<Template | null>(null);
   const [templateList, setTemplateList] = useState<Template[]>([]);
 

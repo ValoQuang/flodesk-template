@@ -26,9 +26,7 @@ const TemplateEditor = () => {
   return (
     <div className="templateEditor">
       <h3>
-        {currentElement === null
-          ? "template setting"
-          : currentElement + " setting"}
+        {currentElement + " setting"}
       </h3>
       {/* Template setting*/}
       <div>{renderSetting()}</div>

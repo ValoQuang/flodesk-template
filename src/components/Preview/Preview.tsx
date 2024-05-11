@@ -37,10 +37,10 @@ const Preview = () => {
         width: currentTemplate.contentWidth,
       },
       header: {
-        fontSize: currentTemplate.headingSettings.fontSize,
-        fontWeight: currentTemplate.headingSettings.fontWeight,
-        color: currentTemplate.headingSettings.color,
-        content: currentTemplate.headingSettings.content,
+        fontSize: currentTemplate.headerSettings.fontSize,
+        fontWeight: currentTemplate.headerSettings.fontWeight,
+        color: currentTemplate.headerSettings.color,
+        content: currentTemplate.headerSettings.content,
       },
       paragraph: {
         fontSize: currentTemplate.paragraphSettings.fontSize,

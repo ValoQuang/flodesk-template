@@ -5,7 +5,7 @@ export interface Template {
   title: string;
   backgroundColor: string;
   contentWidth: string;
-  headingSettings: ElementSettings;
+  headerSettings: ElementSettings;
   paragraphSettings: ElementSettings;
 }
 

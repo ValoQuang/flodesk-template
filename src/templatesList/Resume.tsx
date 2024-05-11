@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ElementSettings, TemplateProps } from "../types";
 import { ELEMENT_TAG } from "../enum";
 
@@ -23,7 +23,9 @@ const TemplateResume: React.FC<TemplateProps> = ({
       {content}
     </div>
   );
-  const resumeContainerStyle = {
+  const resumeContainerStyle: CSSProperties = {
+    alignItems: "center",
+    textAlign: "center",
     display: "flex",
     fontFamily:
       "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
@@ -34,7 +36,6 @@ const TemplateResume: React.FC<TemplateProps> = ({
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
     height: "90vh",
     overflow: "scroll",
-    backgroundColor: "red",
     borderStyle:
       templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
         ? "solid"
@@ -46,9 +47,9 @@ const TemplateResume: React.FC<TemplateProps> = ({
     ...templateDynamicVariables.currentTemplate,
   };
 
-  const paragraphContainerStyle = {
+  const paragraphContainerStyle: CSSProperties = {
     lineHeight: "1.6",
-    marginBottom: "20px",
+    marginTop: "20px",
   };
 
   return (

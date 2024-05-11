@@ -6,9 +6,9 @@ const mockTemplates: Template[] = [
   {
     id: "letter",
     title: "Template Letter",
-    backgroundColor: "#eb8080",
+    backgroundColor: "#f3cb15",
     contentWidth: "55%",
-    headingSettings: {
+    headerSettings: {
       fontSize: "32px",
       fontWeight: "bold",
       color: "#333333",
@@ -26,7 +26,7 @@ const mockTemplates: Template[] = [
     title: "Template Resume",
     backgroundColor: "#dbf07f",
     contentWidth: "90%",
-    headingSettings: {
+    headerSettings: {
       fontSize: "48px",
       fontWeight: "bold",
       color: "#444444",

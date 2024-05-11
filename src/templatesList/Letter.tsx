@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ElementSettings, TemplateProps } from "../types";
 import { ELEMENT_TAG } from "../enum";
 
@@ -23,12 +23,13 @@ const TemplateLetter: React.FC<TemplateProps> = ({
       {content}
     </div>
   );
-  const letterContainerStyle: any = {
+  const letterContainerStyle: CSSProperties = {
     width: "max-content",
     fontFamily:
       "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif",
     display: "flex",
     alignItems: "center",
+    textAlign: "center",
     flexDirection: "column",
     padding: "0px 20px 0px 20px",
     borderRadius: "8px",
@@ -46,14 +47,14 @@ const TemplateLetter: React.FC<TemplateProps> = ({
     ...templateDynamicVariables.currentTemplate,
   };
 
-  const headerContainerStyle = {
+  const headerContainerStyle: CSSProperties = {
     paddingTop: "20px",
     marginBottom: "20px",
   };
 
-  const paragraphContainerStyle = {
+  const paragraphContainerStyle: CSSProperties = {
     lineHeight: "1.6",
-    marginBottom: "20px",
+    marginTop: "40px",
   };
 
   return (

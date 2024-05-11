@@ -84,7 +84,7 @@ const ParagraphSetting = () => {
         <span>Font size</span>
         <input
           type="range"
-          min="14"
+          min="5"
           max="96"
           step="1"
           onChange={handleParagraphFontSize}

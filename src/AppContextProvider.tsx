@@ -9,7 +9,7 @@ export const defaultValue: TemplateContextType = {
     title: "",
     backgroundColor: "",
     contentWidth: "",
-    headingSettings: {
+    headerSettings: {
       fontSize: "",
       fontWeight: "",
       color: "",

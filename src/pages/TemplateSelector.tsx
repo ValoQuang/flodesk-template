@@ -6,38 +6,43 @@ import "./TemplateSelector.css";
 import TemplateBuilder from "./TemplateBuilder";
 
 const TemplateSelector: React.FC = () => {
-  const { template, setTemplate, templateList, fetchTemplateList } = useTemplateContext();
+  const {
+    currentTemplate,
+    setCurrentTemplate,
+    templatesList,
+    fetchTemplateList,
+  } = useTemplateContext();
 
-  const handleSelectTemplate = (template: Template) => {
-    setTemplate(template);
+  const handleSelectTemplate = (currentTemplate: Template) => {
+    setCurrentTemplate(currentTemplate);
   };
 
   useEffect(() => {
-    //I created context here to simulate the API call from backend to fetch template list.
+    //I created context here to simulate the API call from backend to fetch currentTemplate list.
     fetchTemplateList(mockTemplates);
   }, []);
 
   const renderTemplateBuilder = (children: ReactNode) => {
-    return <>{template === null ? children : <TemplateBuilder />}</>;
+    return <>{currentTemplate === null ? children : <TemplateBuilder />}</>;
   };
 
   return (
     <>
       {renderTemplateBuilder(
         <div className="templateSelector">
-          <h1>Choose a template to start</h1>
+          <h1>Choose a currentTemplate to start</h1>
           <div className="templateSelector-container">
             <>
-              {templateList.map((template: Template, index: number) => (
+              {templatesList.map((currentTemplate: Template, index: number) => (
                 <div
                   key={index}
                   className="templateSelector-box"
-                  onClick={() => handleSelectTemplate(template)}
+                  onClick={() => handleSelectTemplate(currentTemplate)}
                 >
                   <section
-                    style={{ backgroundColor: template.backgroundColor }}
+                    style={{ backgroundColor: currentTemplate.backgroundColor }}
                   ></section>
-                  <p key={index}>{template.title}</p>
+                  <p key={index}>{currentTemplate.title}</p>
                 </div>
               ))}
             </>

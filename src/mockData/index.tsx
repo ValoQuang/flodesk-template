@@ -7,12 +7,12 @@ const mockTemplates: Template[] = [
     id: "letter",
     title: "Template Letter",
     backgroundColor: "#eb8080",
-    contentWidth: "60%",
+    contentWidth: "55%",
     headingSettings: {
-      fontSize: "24px",
+      fontSize: "32px",
       fontWeight: "bold",
       color: "#333333",
-      content: "Header template 1",
+      content: "Header 1",
     },
     paragraphSettings: {
       fontSize: "16px",
@@ -25,12 +25,12 @@ const mockTemplates: Template[] = [
     id: "resume",
     title: "Template Resume",
     backgroundColor: "#dbf07f",
-    contentWidth: "100%",
+    contentWidth: "90%",
     headingSettings: {
       fontSize: "48px",
       fontWeight: "bold",
       color: "#444444",
-      content: "Header template 2",
+      content: "Header 2",
     },
     paragraphSettings: {
       fontSize: "14px",

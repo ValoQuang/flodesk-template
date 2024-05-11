@@ -4,11 +4,15 @@ import { useTemplateContext } from "../../AppContextProvider";
 import { Template } from "../../types";
 
 const Navbar = () => {
-  const { template, setCurrentElement, setTemplate, templateList } =
-    useTemplateContext();
+  const {
+    currentTemplate,
+    setCurrentElement,
+    setCurrentTemplate,
+    templatesList,
+  } = useTemplateContext();
 
   const handleBackToTemplateSelector = () => {
-    setTemplate(null as unknown as SetStateAction<Template>);
+    setCurrentTemplate(null as unknown as SetStateAction<Template>);
     setCurrentElement(null);
   };
 
@@ -24,7 +28,7 @@ const Navbar = () => {
         const url = URL.createObjectURL(file);
         const downloadLink = document.createElement("a");
         downloadLink.href = url;
-        downloadLink.download = `${template?.title}.html`;
+        downloadLink.download = `${currentTemplate?.title}.html`;
         downloadLink.click();
         URL.revokeObjectURL(url);
 
@@ -37,12 +41,17 @@ const Navbar = () => {
   };
 
   const handleSaveTemplate = () => {
-    const foundIndex = templateList.findIndex((target) => target.id === template?.id);
-    templateList[foundIndex] = template!;
-    window.alert("Your work is saved for this session.")
+    const foundIndex = templatesList.findIndex(
+      (target) => target.id === currentTemplate?.id
+    );
+    templatesList[foundIndex] = currentTemplate!;
+    window.alert("Your work is saved for this session.");
   };
 
-  const renderButton = (title: string, onClick: MouseEventHandler<HTMLButtonElement> | undefined) => {
+  const renderButton = (
+    title: string,
+    onClick: MouseEventHandler<HTMLButtonElement> | undefined
+  ) => {
     return (
       <button className="navbar-button" onClick={onClick}>
         {title}
@@ -53,7 +62,7 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <h3>{template?.title}</h3>
+        <h3>{currentTemplate?.title}</h3>
         <section>
           {renderButton("Back", handleBackToTemplateSelector)}
           {renderButton("Save", handleSaveTemplate)}

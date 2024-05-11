@@ -1,7 +1,9 @@
 import React from "react";
 import { ElementSettings, TemplateProps } from "../../types";
 
-const TemplateLetter: React.FC<TemplateProps> = ({ templateDynamicVariables }) => {
+const TemplateLetter: React.FC<TemplateProps> = ({
+  templateDynamicVariables,
+}) => {
   const renderContent = (
     style: React.CSSProperties | ElementSettings | undefined,
     content: string,
@@ -10,8 +12,10 @@ const TemplateLetter: React.FC<TemplateProps> = ({ templateDynamicVariables }) =
     <div
       id={id}
       style={{
-        borderStyle: templateDynamicVariables.currentElementTag === id ? "solid" : "",
-        borderWidth: templateDynamicVariables.currentElementTag === id ? "1px" : "",
+        borderStyle:
+          templateDynamicVariables.currentElementTag === id ? "solid" : "",
+        borderWidth:
+          templateDynamicVariables.currentElementTag === id ? "1px" : "",
         ...style,
       }}
     >
@@ -30,9 +34,15 @@ const TemplateLetter: React.FC<TemplateProps> = ({ templateDynamicVariables }) =
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
     height: "90vh",
     overflow: "scroll",
-    borderStyle: templateDynamicVariables.currentElementTag === "template" ? "solid" : "",
-    borderWidth: templateDynamicVariables.currentElementTag === "template" ? "1.5px" : "",
-    ...templateDynamicVariables.template,
+    borderStyle:
+      templateDynamicVariables.currentElementTag === "currentTemplate"
+        ? "solid"
+        : "",
+    borderWidth:
+      templateDynamicVariables.currentElementTag === "currentTemplate"
+        ? "1.5px"
+        : "",
+    ...templateDynamicVariables.currentTemplate,
   };
 
   const headerContainerStyle = {

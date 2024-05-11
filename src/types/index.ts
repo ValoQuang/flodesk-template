@@ -17,8 +17,8 @@ export interface ElementSettings {
 }
 
 interface TemplateDynamicVariables {
-  template: React.CSSProperties;
-  header:ElementSettings;
+  currentTemplate: React.CSSProperties;
+  header: ElementSettings;
   paragraph: ElementSettings;
   currentElementTag: string | null | undefined;
 }
@@ -31,13 +31,13 @@ interface UpdateTemplateSettingsAction {
   value: Template[keyof Template];
 }
 export interface TemplateContextType {
-  template: Template | null;
-  setTemplate: Dispatch<SetStateAction<Template>>;
+  currentTemplate: Template | null;
+  setCurrentTemplate: Dispatch<SetStateAction<Template>>;
   updateTemplateSettings: Dispatch<
     SetStateAction<UpdateTemplateSettingsAction>
   >;
   setCurrentElement: Dispatch<SetStateAction<string | null>>;
   currentElementTag?: string | null;
-  templateList: Template[] | [];
+  templatesList: Template[] | [];
   fetchTemplateList: Dispatch<SetStateAction<Template[] | null>>;
 }

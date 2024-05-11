@@ -4,7 +4,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import "./Setting.css";
 
 const PageSetting = () => {
-  const { template, updateTemplateSettings } = useTemplateContext();
+  const { currentTemplate, updateTemplateSettings } = useTemplateContext();
   const [picker, setPicker] = useState<boolean>(false);
 
   const handleOpenPicker = () => {
@@ -15,9 +15,13 @@ const PageSetting = () => {
       updateTemplateSettings({ property: "backgroundColor", value: color.hex });
   };
 
-  const handleContentWidth = (event: { target: { value: string; }; }) => {
-    const newWidth = event.target.value
-    if (newWidth) updateTemplateSettings({ property: "contentWidth", value: `${newWidth}%` });
+  const handleContentWidth = (event: { target: { value: string } }) => {
+    const newWidth = event.target.value;
+    if (newWidth)
+      updateTemplateSettings({
+        property: "contentWidth",
+        value: `${newWidth}%`,
+      });
   };
 
   return (
@@ -26,7 +30,7 @@ const PageSetting = () => {
         <span>Color</span>
         <div
           style={{
-            backgroundColor: template?.backgroundColor,
+            backgroundColor: currentTemplate?.backgroundColor,
             width: "35px",
             height: "35px",
             borderWidth: "1px",
@@ -36,7 +40,7 @@ const PageSetting = () => {
         {picker && (
           <SketchPicker
             className="templateEditor-sketch"
-            color={template?.backgroundColor}
+            color={currentTemplate?.backgroundColor}
             onChangeComplete={handleColorChange}
           />
         )}
@@ -49,7 +53,7 @@ const PageSetting = () => {
           min="10"
           max="90"
           onChange={handleContentWidth}
-          value={parseInt(template?.contentWidth!)}
+          value={parseInt(currentTemplate?.contentWidth!)}
         ></input>
       </section>
     </div>

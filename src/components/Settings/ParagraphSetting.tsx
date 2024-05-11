@@ -5,7 +5,7 @@ import { fontWeightOption } from "../../mockData";
 import { ElementSettings } from "../../types";
 
 const ParagraphSetting = () => {
-  const { template, updateTemplateSettings } = useTemplateContext();
+  const { currentTemplate, updateTemplateSettings } = useTemplateContext();
   const [picker, setPicker] = useState<boolean>(false);
 
   const handleOpenPicker = () => {
@@ -17,7 +17,10 @@ const ParagraphSetting = () => {
     if (newSize)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, fontSize: `${newSize}px` } as ElementSettings,
+        value: {
+          ...currentTemplate?.paragraphSettings,
+          fontSize: `${newSize}px`,
+        } as ElementSettings,
       });
   };
 
@@ -25,7 +28,10 @@ const ParagraphSetting = () => {
     if (newWeight)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, fontWeight: newWeight } as ElementSettings,
+        value: {
+          ...currentTemplate?.paragraphSettings,
+          fontWeight: newWeight,
+        } as ElementSettings,
       });
   };
 
@@ -34,7 +40,10 @@ const ParagraphSetting = () => {
     if (newContent)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, content: newContent } as ElementSettings,
+        value: {
+          ...currentTemplate?.paragraphSettings,
+          content: newContent,
+        } as ElementSettings,
       });
   };
 
@@ -42,7 +51,10 @@ const ParagraphSetting = () => {
     if (color.hex)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, color: color.hex } as ElementSettings,
+        value: {
+          ...currentTemplate?.paragraphSettings,
+          color: color.hex,
+        } as ElementSettings,
       });
   };
 
@@ -52,7 +64,7 @@ const ParagraphSetting = () => {
         <span>Paragraph Color</span>
         <div
           style={{
-            backgroundColor: template?.paragraphSettings.color,
+            backgroundColor: currentTemplate?.paragraphSettings.color,
             width: "35px",
             height: "35px",
             borderWidth: "1px",
@@ -62,7 +74,7 @@ const ParagraphSetting = () => {
         {picker && (
           <SketchPicker
             className="templateEditor-sketch"
-            color={template?.paragraphSettings.color}
+            color={currentTemplate?.paragraphSettings.color}
             onChangeComplete={handleParagraphColor}
           />
         )}
@@ -76,7 +88,7 @@ const ParagraphSetting = () => {
           max="96"
           step="1"
           onChange={handleParagraphFontSize}
-          value={parseInt(template?.paragraphSettings.fontSize!)}
+          value={parseInt(currentTemplate?.paragraphSettings.fontSize!)}
         ></input>
       </section>
 
@@ -85,7 +97,10 @@ const ParagraphSetting = () => {
         {fontWeightOption.map((fontWeightValue) => (
           <div key={fontWeightValue}>
             <input
-              checked={template?.paragraphSettings.fontWeight === fontWeightValue}
+              checked={
+                currentTemplate?.paragraphSettings.fontWeight ===
+                fontWeightValue
+              }
               type="radio"
               id={fontWeightValue}
               onChange={() => handleParagraphFontWeight(fontWeightValue)}
@@ -100,7 +115,7 @@ const ParagraphSetting = () => {
         <textarea
           style={{ width: "80%", height: "50px" }}
           onChange={handleParagraphContent}
-          value={template?.paragraphSettings.content}
+          value={currentTemplate?.paragraphSettings.content}
         />
       </section>
     </div>

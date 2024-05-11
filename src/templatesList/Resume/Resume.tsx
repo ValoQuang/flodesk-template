@@ -1,7 +1,9 @@
 import React from "react";
 import { ElementSettings, TemplateProps } from "../../types";
 
-const TemplateResume: React.FC<TemplateProps> = ({ templateDynamicVariables }) => {
+const TemplateResume: React.FC<TemplateProps> = ({
+  templateDynamicVariables,
+}) => {
   const renderContent = (
     style: React.CSSProperties | ElementSettings | undefined,
     content: string,
@@ -10,8 +12,10 @@ const TemplateResume: React.FC<TemplateProps> = ({ templateDynamicVariables }) =
     <div
       id={id}
       style={{
-        borderStyle: templateDynamicVariables.currentElementTag === id ? "solid" : "",
-        borderWidth: templateDynamicVariables.currentElementTag === id ? "1px" : "",
+        borderStyle:
+          templateDynamicVariables.currentElementTag === id ? "solid" : "",
+        borderWidth:
+          templateDynamicVariables.currentElementTag === id ? "1px" : "",
         ...style,
       }}
     >
@@ -30,9 +34,15 @@ const TemplateResume: React.FC<TemplateProps> = ({ templateDynamicVariables }) =
     height: "90vh",
     overflow: "scroll",
     backgroundColor: "red",
-    borderStyle: templateDynamicVariables.currentElementTag === "template" ? "solid" : "",
-    borderWidth: templateDynamicVariables.currentElementTag === "template" ? "1px" : "",
-    ...templateDynamicVariables.template,
+    borderStyle:
+      templateDynamicVariables.currentElementTag === "page"
+        ? "solid"
+        : "",
+    borderWidth:
+      templateDynamicVariables.currentElementTag === "page"
+        ? "1px"
+        : "",
+    ...templateDynamicVariables.currentTemplate,
   };
 
   const paragraphContainerStyle = {
@@ -43,7 +53,11 @@ const TemplateResume: React.FC<TemplateProps> = ({ templateDynamicVariables }) =
   return (
     <div style={resumeContainerStyle}>
       <header>
-        {renderContent(templateDynamicVariables.header, templateDynamicVariables.header.content, "header")}
+        {renderContent(
+          templateDynamicVariables.header,
+          templateDynamicVariables.header.content,
+          "header"
+        )}
       </header>
       <p style={paragraphContainerStyle}>
         {renderContent(

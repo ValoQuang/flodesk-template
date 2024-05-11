@@ -6,7 +6,7 @@ import { fontWeightOption } from "../../mockData";
 import { ElementSettings } from "../../types";
 
 const HeaderSetting = () => {
-  const { template, updateTemplateSettings } = useTemplateContext();
+  const { currentTemplate, updateTemplateSettings } = useTemplateContext();
   const [picker, setPicker] = useState<boolean>(false);
 
   const handleOpenPicker = () => {
@@ -18,7 +18,10 @@ const HeaderSetting = () => {
     if (newSize)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, fontSize: `${newSize}px` } as ElementSettings,
+        value: {
+          ...currentTemplate?.headingSettings,
+          fontSize: `${newSize}px`,
+        } as ElementSettings,
       });
   };
 
@@ -26,7 +29,10 @@ const HeaderSetting = () => {
     if (newWeight)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, fontWeight: newWeight } as ElementSettings,
+        value: {
+          ...currentTemplate?.headingSettings,
+          fontWeight: newWeight,
+        } as ElementSettings,
       });
   };
 
@@ -35,7 +41,10 @@ const HeaderSetting = () => {
     if (newHeadline)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, content: newHeadline } as ElementSettings,
+        value: {
+          ...currentTemplate?.headingSettings,
+          content: newHeadline,
+        } as ElementSettings,
       });
   };
 
@@ -43,7 +52,10 @@ const HeaderSetting = () => {
     if (color.hex)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, color: color.hex } as ElementSettings,
+        value: {
+          ...currentTemplate?.headingSettings,
+          color: color.hex,
+        } as ElementSettings,
       });
   };
 
@@ -53,7 +65,7 @@ const HeaderSetting = () => {
         <span>Header Color</span>
         <div
           style={{
-            backgroundColor: template?.headingSettings.color,
+            backgroundColor: currentTemplate?.headingSettings.color,
             width: "35px",
             height: "35px",
             borderWidth: "1px",
@@ -63,7 +75,7 @@ const HeaderSetting = () => {
         {picker && (
           <SketchPicker
             className="templateEditor-sketch"
-            color={template?.headingSettings.color}
+            color={currentTemplate?.headingSettings.color}
             onChangeComplete={handleHeaderColor}
           />
         )}
@@ -77,7 +89,7 @@ const HeaderSetting = () => {
           max="96"
           step="1"
           onChange={handleHeaderFontSize}
-          value={parseInt(template?.headingSettings.fontSize!)}
+          value={parseInt(currentTemplate?.headingSettings.fontSize!)}
         ></input>
       </section>
 
@@ -86,7 +98,9 @@ const HeaderSetting = () => {
         {fontWeightOption.map((fontWeightValue) => (
           <div key={fontWeightValue}>
             <input
-              checked={template?.headingSettings.fontWeight === fontWeightValue}
+              checked={
+                currentTemplate?.headingSettings.fontWeight === fontWeightValue
+              }
               type="radio"
               id={fontWeightValue}
               onChange={() => handleHeaderFontWeight(fontWeightValue)}
@@ -101,7 +115,7 @@ const HeaderSetting = () => {
         <textarea
           style={{ width: "80%", height: "50px" }}
           onChange={handleHeaderContent}
-          value={template?.headingSettings.content}
+          value={currentTemplate?.headingSettings.content}
         />
       </section>
     </div>

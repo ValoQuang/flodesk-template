@@ -1,61 +1,60 @@
 import { useCallback } from "react";
 import "./Preview.css";
 import { useTemplateContext } from "../../AppContextProvider";
-import Letter from "../../templateList/Letter/Letter";
-import Resume from "../../templateList/Resume/Resume";
+import Letter from "../../templatesList/Letter/Letter";
+import Resume from "../../templatesList/Resume/Resume";
 import "./Preview.css";
 
 const Preview = () => {
-  const { template, setCurrentElement, currentElementTag } =
+  const { currentTemplate, setCurrentElement, currentElementTag } =
     useTemplateContext();
 
   const captureClickElement = useCallback(
     (event: any) => {
-      setCurrentElement(event.target.id);
+      const validIds = ["page", "header", "paragraph"];
+      const clickedId = event.target.id;
+
+      if (validIds.includes(clickedId)) {
+        setCurrentElement(clickedId);
+      } else {
+        setCurrentElement("page");
+      }
     },
     [setCurrentElement]
   );
 
   const renderTemplate = useCallback(() => {
-    if (!template) return null;
+    if (!currentTemplate) return null;
 
     const templateDynamicVariables = {
       currentElementTag: currentElementTag,
-      template: {
-        backgroundColor: template.backgroundColor,
-        width: template.contentWidth,
+      currentTemplate: {
+        backgroundColor: currentTemplate.backgroundColor,
+        width: currentTemplate.contentWidth,
       },
       header: {
-        fontSize: template.headingSettings.fontSize,
-        fontWeight: template.headingSettings.fontWeight,
-        color: template.headingSettings.color,
-        content: template.headingSettings.content,
+        fontSize: currentTemplate.headingSettings.fontSize,
+        fontWeight: currentTemplate.headingSettings.fontWeight,
+        color: currentTemplate.headingSettings.color,
+        content: currentTemplate.headingSettings.content,
       },
       paragraph: {
-        fontSize: template.paragraphSettings.fontSize,
-        fontWeight: template.paragraphSettings.fontWeight,
-        color: template.paragraphSettings.color,
-        content: template.paragraphSettings.content,
+        fontSize: currentTemplate.paragraphSettings.fontSize,
+        fontWeight: currentTemplate.paragraphSettings.fontWeight,
+        color: currentTemplate.paragraphSettings.color,
+        content: currentTemplate.paragraphSettings.content,
       },
     };
 
-    switch (template.id) {
+    switch (currentTemplate.id) {
       case "letter":
-        return (
-          <Letter
-            templateDynamicVariables={templateDynamicVariables}
-          />
-        );
+        return <Letter templateDynamicVariables={templateDynamicVariables} />;
       case "resume":
-        return (
-          <Resume
-            templateDynamicVariables={templateDynamicVariables}
-          />
-        );
+        return <Resume templateDynamicVariables={templateDynamicVariables} />;
       default:
         return null;
     }
-  }, [template, currentElementTag]);
+  }, [currentTemplate, currentElementTag]);
 
   return (
     <div

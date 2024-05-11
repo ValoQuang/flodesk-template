@@ -2,8 +2,8 @@ import { createContext, useContext, useState, ReactNode } from "react";
 import { Template, TemplateContextType } from "./types";
 
 export const defaultValue: TemplateContextType = {
-  templateList: [],
-  template: {
+  templatesList: [],
+  currentTemplate: {
     id: "",
     title: "",
     backgroundColor: "",
@@ -20,7 +20,7 @@ export const defaultValue: TemplateContextType = {
       content: "",
     },
   },
-  setTemplate: () => {},
+  setCurrentTemplate: () => {},
   fetchTemplateList: () => {},
   updateTemplateSettings: () => {},
   setCurrentElement: () => {},
@@ -31,12 +31,14 @@ const TemplateContext = createContext<TemplateContextType>(defaultValue);
 export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentElementTag, setCurrentEl] = useState<string | null>("template");
-  const [template, setTemplate] = useState<Template | null>(null);
-  const [templateList, setTemplateList] = useState<Template[]>([]);
+  const [currentElementTag, setCurrentEl] = useState<string | null>(
+    "page"
+  );
+  const [currentTemplate, setCurrentTemplate] = useState<Template | null>(null);
+  const [templatesList, setTemplateList] = useState<Template[]>([]);
 
   const setCurrentElement = (newEl: string | null) => {
-    if (template) {
+    if (currentTemplate) {
       setCurrentEl(newEl);
     }
   };
@@ -50,8 +52,8 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
     value: string;
   }) => {
     const { property, value } = settings;
-    if (template && template.hasOwnProperty(property)) {
-      setTemplate((prevTemplate) => ({
+    if (currentTemplate && currentTemplate.hasOwnProperty(property)) {
+      setCurrentTemplate((prevTemplate) => ({
         ...prevTemplate!,
         [property]: value,
       }));
@@ -62,12 +64,12 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
     <TemplateContext.Provider
       value={
         {
-          template,
-          setTemplate,
+          currentTemplate,
+          setCurrentTemplate,
           updateTemplateSettings,
           setCurrentElement,
           currentElementTag,
-          templateList,
+          templatesList,
           fetchTemplateList,
         } as TemplateContextType
       }

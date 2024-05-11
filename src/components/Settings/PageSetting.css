@@ -1,0 +1,9 @@
+.page-setting-picker {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    position: relative;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 10px 10px 10px;
+  }

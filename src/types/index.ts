@@ -16,24 +16,28 @@ export interface ElementSettings {
   content: string;
 }
 
+interface TemplateDynamicVariables {
+  template: React.CSSProperties;
+  header:ElementSettings;
+  paragraph: ElementSettings;
+  currentElementTag: string | null | undefined;
+}
 export interface TemplateProps {
-  templateStyle: React.CSSProperties;
-  headerStyle: ElementSettings;
-  paragraphStyle: ElementSettings;
-  template: Template;
-  currentElement?: string | null;
+  templateDynamicVariables: TemplateDynamicVariables;
 }
 
 interface UpdateTemplateSettingsAction {
   property: keyof Template;
-  value: Template[keyof Template]
+  value: Template[keyof Template];
 }
 export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;
-  updateTemplateSettings: Dispatch<SetStateAction<UpdateTemplateSettingsAction>>;
+  updateTemplateSettings: Dispatch<
+    SetStateAction<UpdateTemplateSettingsAction>
+  >;
   setCurrentElement: Dispatch<SetStateAction<string | null>>;
-  currentElement?: string | null;
+  currentElementTag?: string | null;
   templateList: Template[] | [];
   fetchTemplateList: Dispatch<SetStateAction<Template[] | null>>;
 }

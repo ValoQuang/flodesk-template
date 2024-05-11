@@ -15,7 +15,7 @@ const TemplateSelector: React.FC = () => {
   useEffect(() => {
     //I created context here to simulate the API call from backend to fetch template list.
     fetchTemplateList(mockTemplates);
-  }, [templateList]);
+  }, []);
 
   const renderTemplateBuilder = (children: ReactNode) => {
     return <>{template === null ? children : <TemplateBuilder />}</>;

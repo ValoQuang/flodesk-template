@@ -6,12 +6,12 @@ import HeaderSetting from "../Settings/HeaderSetting";
 import ParagraphSetting from "../Settings/ParagraphSetting";
 
 const TemplateEditor = () => {
-  const { template, currentElement } = useTemplateContext();
+  const { template, currentElementTag } = useTemplateContext();
 
   const renderSetting = useCallback(() => {
     if (!template) return null;
 
-    switch (currentElement) {
+    switch (currentElementTag) {
       case "template" || null:
         return <PageSetting />;
       case "header":
@@ -21,13 +21,11 @@ const TemplateEditor = () => {
       default:
         return <PageSetting />;
     }
-  }, [template, currentElement]);
+  }, [template, currentElementTag]);
 
   return (
     <div className="templateEditor">
-      <h3>
-        {currentElement + " setting"}
-      </h3>
+      <h3>{currentElementTag + " setting"}</h3>
       {/* Template setting*/}
       <div>{renderSetting()}</div>
     </div>

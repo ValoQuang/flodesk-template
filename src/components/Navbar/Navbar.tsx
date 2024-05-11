@@ -37,9 +37,9 @@ const Navbar = () => {
   };
 
   const handleSaveTemplate = () => {
-    const foundIndex = templateList.findIndex((x) => x.id == template?.id);
+    const foundIndex = templateList.findIndex((target) => target.id === template?.id);
     templateList[foundIndex] = template!;
-    window.alert("Your work is saved.")
+    window.alert("Your work is saved for this session.")
   };
 
   const renderButton = (title: string, onClick: MouseEventHandler<HTMLButtonElement> | undefined) => {

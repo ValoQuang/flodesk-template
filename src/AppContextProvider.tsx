@@ -31,7 +31,7 @@ const TemplateContext = createContext<TemplateContextType>(defaultValue);
 export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentElement, setCurrentEl] = useState<string | null>("template");
+  const [currentElementTag, setCurrentEl] = useState<string | null>("template");
   const [template, setTemplate] = useState<Template | null>(null);
   const [templateList, setTemplateList] = useState<Template[]>([]);
 
@@ -66,7 +66,7 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
           setTemplate,
           updateTemplateSettings,
           setCurrentElement,
-          currentElement,
+          currentElementTag,
           templateList,
           fetchTemplateList,
         } as TemplateContextType

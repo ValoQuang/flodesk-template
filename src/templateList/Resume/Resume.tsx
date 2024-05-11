@@ -9,9 +9,12 @@ const TemplateResume: React.FC<TemplateProps> = ({
   template,
   currentElement,
 }) => {
-  const renderContent = (style: React.CSSProperties | ElementSettings | undefined, content: string, id: string) => (
+  const renderContent = (
+    style: React.CSSProperties | ElementSettings | undefined,
+    content: string,
+    id: string
+  ) => (
     <div
-      className="letter"
       id={id}
       style={{
         borderStyle: currentElement === id ? "solid" : "",
@@ -25,26 +28,25 @@ const TemplateResume: React.FC<TemplateProps> = ({
 
   return (
     <div
+      className="resume-container"
       id="template"
       style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        padding: "20px",
-        borderRadius: "8px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+        borderStyle: currentElement === "resume" ? "solid" : "",
+        borderWidth: currentElement === "resume" ? "1px" : "",
         ...templateStyle,
       }}
     >
-      {renderContent(headerStyle, template.headingSettings.content, "header")}
+      <header>
+        {renderContent(headerStyle, template.headingSettings.content, "header")}
+      </header>
 
-      <div>
+      <p>
         {renderContent(
           paragraphStyle,
           template.paragraphSettings.content,
           "paragraph"
         )}
-      </div>
+      </p>
     </div>
   );
 };

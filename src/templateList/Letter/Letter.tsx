@@ -11,7 +11,6 @@ const TemplateLetter: React.FC<TemplateProps> = ({
 }) => {
   const renderContent = (style: React.CSSProperties | ElementSettings | undefined, content: string, id: string) => (
     <div
-      className="letter"
       id={id}
       style={{
         borderStyle: currentElement === id ? "solid" : "",
@@ -25,30 +24,25 @@ const TemplateLetter: React.FC<TemplateProps> = ({
 
   return (
     <div
+      className="letter-container"
       id="template"
       style={{
-        display: "flex",
-        alignItems: "center",
-        flexDirection: "column",
-        padding: "20px",
-        borderRadius: "8px",
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-        height: "fit-content",
+        borderStyle: currentElement === "template" ? "solid" : "",
+        borderWidth: currentElement === "template" ? "1.5px" : "",
         ...templateStyle,
-        overflow: "scroll",
       }}
     >
-      <header>
+      <header >
         {renderContent(headerStyle, template.headingSettings.content, "header")}
       </header>
 
-      <div>
+      <p style={{paddingTop:"100px"}}>
         {renderContent(
           paragraphStyle,
           template.paragraphSettings.content,
           "paragraph"
         )}
-      </div>
+      </p>
     </div>
   );
 };

@@ -1,3 +1,21 @@
-.letter {
+.letter-container {
   width: max-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 0px 20px 0px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 90vh;
+  overflow: scroll;
+}
+
+header {
+  padding-top:20px;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 20px;
 }

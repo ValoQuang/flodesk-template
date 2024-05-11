@@ -31,7 +31,7 @@ const TemplateEditor = () => {
           : currentElement + " setting"}
       </h3>
       {/* Template setting*/}
-      <div className="templateEditor-board">{renderSetting()}</div>
+      <div>{renderSetting()}</div>
     </div>
   );
 };

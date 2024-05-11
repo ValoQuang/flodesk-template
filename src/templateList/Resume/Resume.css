@@ -1,3 +1,17 @@
-.letter {
-    width: max-content;
-  }
+.resume-container {
+  display: flex;
+
+  gap: 30px;
+  width: max-content;
+  padding: 50px 50px 0px 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 90vh;
+  overflow: scroll;
+  background-color:red;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 20px;
+}

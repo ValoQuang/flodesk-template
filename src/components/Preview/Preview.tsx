@@ -6,7 +6,7 @@ import Resume from "../../templateList/Resume/Resume";
 import "./Preview.css";
 
 const Preview = () => {
-  const { template, setCurrentElement, currentEl } = useTemplateContext();
+  const { template, setCurrentElement, currentElement } = useTemplateContext();
 
   const captureClickElement = useCallback(
     (event: any) => {
@@ -42,19 +42,23 @@ const Preview = () => {
             headerStyle={headerStyle}
             paragraphStyle={paragraphStyle}
             template={template}
-            currentEl={currentEl}
+            currentElement={currentElement}
           />
         );
       case "resume":
-        return <Resume templateStyle={templateStyle}
-        headerStyle={headerStyle}
-        paragraphStyle={paragraphStyle}
-        template={template}
-        currentEl={currentEl}/>;
+        return (
+          <Resume
+            templateStyle={templateStyle}
+            headerStyle={headerStyle}
+            paragraphStyle={paragraphStyle}
+            template={template}
+            currentElement={currentElement}
+          />
+        );
       default:
         return null;
     }
-  }, [template, currentEl]);
+  }, [template, currentElement]);
 
   return (
     <div

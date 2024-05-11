@@ -7,7 +7,7 @@ interface LetterProps {
   headerStyle: ElementSettings;
   paragraphStyle: ElementSettings;
   template: Template;
-  currentEl: string | null;
+  currentElement: string | null;
 }
 
 const TemplateResume: React.FC<LetterProps> = ({
@@ -15,15 +15,15 @@ const TemplateResume: React.FC<LetterProps> = ({
   headerStyle,
   paragraphStyle,
   template,
-  currentEl,
+  currentElement,
 }) => {
   const renderContent = (style: any, content: string, id: string) => (
     <div
       className="letter"
       id={id}
       style={{
-        borderStyle: currentEl === id ? "solid" : "",
-        borderWidth: currentEl === id ? "1px" : "",
+        borderStyle: currentElement === id ? "solid" : "",
+        borderWidth: currentElement === id ? "1px" : "",
         ...style,
       }}
     >

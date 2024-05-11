@@ -19,6 +19,8 @@ export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;
   updateTemplateSettings: Dispatch<SetStateAction<any>>;
-  setCurrentElement:  Dispatch<SetStateAction<any>>;
-  currentEl?: any;
+  setCurrentElement: Dispatch<SetStateAction<any>>;
+  currentElement?: string | null | any;
+  templateList: Template[] | [];
+  fetchTemplateList: any;
 }

@@ -7,7 +7,7 @@ interface LetterProps {
   headerStyle: ElementSettings;
   paragraphStyle: ElementSettings;
   template: Template;
-  currentEl: string | null;
+  currentElement: string | null;
 }
 
 const TemplateLetter: React.FC<LetterProps> = ({
@@ -15,15 +15,15 @@ const TemplateLetter: React.FC<LetterProps> = ({
   headerStyle,
   paragraphStyle,
   template,
-  currentEl,
+  currentElement,
 }) => {
   const renderContent = (style: any, content: string, id: string) => (
     <div
       className="letter"
       id={id}
       style={{
-        borderStyle: currentEl === id ? "solid" : "",
-        borderWidth: currentEl === id ? "1px" : "",
+        borderStyle: currentElement === id ? "solid" : "",
+        borderWidth: currentElement === id ? "1px" : "",
         ...style,
       }}
     >
@@ -43,7 +43,7 @@ const TemplateLetter: React.FC<LetterProps> = ({
         boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
         height: "fit-content",
         ...templateStyle,
-        overflow: "scroll"
+        overflow: "scroll",
       }}
     >
       <header>
@@ -51,7 +51,10 @@ const TemplateLetter: React.FC<LetterProps> = ({
       </header>
 
       <div>
-        {renderContent(paragraphStyle, template.paragraphSettings.content, "paragraph"
+        {renderContent(
+          paragraphStyle,
+          template.paragraphSettings.content,
+          "paragraph"
         )}
       </div>
     </div>

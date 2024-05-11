@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 import { Template, TemplateContextType } from "./types";
+import { ELEMENT_TAG } from "./enum";
 
 export const defaultValue: TemplateContextType = {
   templatesList: [],
@@ -32,7 +33,7 @@ export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
   const [currentElementTag, setCurrentEl] = useState<string | null>(
-    "page"
+    ELEMENT_TAG.PAGE
   );
   const [currentTemplate, setCurrentTemplate] = useState<Template | null>(null);
   const [templatesList, setTemplateList] = useState<Template[]>([]);

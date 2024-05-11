@@ -4,6 +4,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import PageSetting from "../Settings/PageSetting";
 import HeaderSetting from "../Settings/HeaderSetting";
 import ParagraphSetting from "../Settings/ParagraphSetting";
+import { ELEMENT_TAG } from "../../enum";
 
 const TemplateEditor = () => {
   const { currentTemplate, currentElementTag } = useTemplateContext();
@@ -12,11 +13,11 @@ const TemplateEditor = () => {
     if (!currentTemplate) return null;
 
     switch (currentElementTag) {
-      case "page" || null:
+      case ELEMENT_TAG.PAGE || null:
         return <PageSetting />;
-      case "header":
+      case ELEMENT_TAG.HEADER:
         return <HeaderSetting />;
-      case "paragraph":
+      case ELEMENT_TAG.PARAGRAPH:
         return <ParagraphSetting />;
       default:
         return <PageSetting />;

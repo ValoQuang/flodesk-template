@@ -4,6 +4,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import Letter from "../../templatesList/Letter/Letter";
 import Resume from "../../templatesList/Resume/Resume";
 import "./Preview.css";
+import { ELEMENT_TAG } from "../../enum";
 
 const Preview = () => {
   const { currentTemplate, setCurrentElement, currentElementTag } =
@@ -11,13 +12,17 @@ const Preview = () => {
 
   const captureClickElement = useCallback(
     (event: any) => {
-      const validIds = ["page", "header", "paragraph"];
+      const validIds = [
+        ELEMENT_TAG.PAGE,
+        ELEMENT_TAG.HEADER,
+        ELEMENT_TAG.PARAGRAPH,
+      ];
       const clickedId = event.target.id;
 
       if (validIds.includes(clickedId)) {
         setCurrentElement(clickedId);
       } else {
-        setCurrentElement("page");
+        setCurrentElement(ELEMENT_TAG.PAGE);
       }
     },
     [setCurrentElement]

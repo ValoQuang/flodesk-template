@@ -1,5 +1,6 @@
 import React from "react";
 import { ElementSettings, TemplateProps } from "../../types";
+import { ELEMENT_TAG } from "../../enum";
 
 const TemplateResume: React.FC<TemplateProps> = ({
   templateDynamicVariables,
@@ -35,13 +36,9 @@ const TemplateResume: React.FC<TemplateProps> = ({
     overflow: "scroll",
     backgroundColor: "red",
     borderStyle:
-      templateDynamicVariables.currentElementTag === "page"
-        ? "solid"
-        : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "solid" : "",
     borderWidth:
-      templateDynamicVariables.currentElementTag === "page"
-        ? "1px"
-        : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "1px" : "",
     ...templateDynamicVariables.currentTemplate,
   };
 
@@ -56,14 +53,14 @@ const TemplateResume: React.FC<TemplateProps> = ({
         {renderContent(
           templateDynamicVariables.header,
           templateDynamicVariables.header.content,
-          "header"
+          ELEMENT_TAG.HEADER
         )}
       </header>
       <p style={paragraphContainerStyle}>
         {renderContent(
           templateDynamicVariables.paragraph,
           templateDynamicVariables.paragraph.content,
-          "paragraph"
+          ELEMENT_TAG.PARAGRAPH
         )}
       </p>
     </div>

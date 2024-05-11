@@ -30,7 +30,7 @@ const TemplateSelector: React.FC = () => {
     <>
       {renderTemplateBuilder(
         <div className="templateSelector">
-          <h1>Choose a currentTemplate to start</h1>
+          <h1>Choose a template to start</h1>
           <div className="templateSelector-container">
             <>
               {templatesList.map((currentTemplate: Template, index: number) => (

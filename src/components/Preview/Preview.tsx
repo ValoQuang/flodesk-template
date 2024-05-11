@@ -19,20 +19,20 @@ const Preview = () => {
     if (!template) return null;
 
     const templateStyle = {
-      backgroundColor: template.backgroundColor || "white",
-      width: template.contentWidth || "100%",
+      backgroundColor: template.backgroundColor,
+      width: template.contentWidth,
     };
     const headerStyle = {
-      fontSize: template.headingSettings.fontSize || "16px",
-      fontWeight: template.headingSettings.fontWeight || "normal",
-      color: template.headingSettings.color || "black",
-      content: template.headingSettings.content || "",
+      fontSize: template.headingSettings.fontSize,
+      fontWeight: template.headingSettings.fontWeight,
+      color: template.headingSettings.color,
+      content: template.headingSettings.content,
     };
     const paragraphStyle = {
-      fontSize: template.paragraphSettings.fontSize || "14px",
-      fontWeight: template.paragraphSettings.fontWeight || "normal",
-      color: template.paragraphSettings.color || "black",
-      content: template.paragraphSettings.content || "",
+      fontSize: template.paragraphSettings.fontSize,
+      fontWeight: template.paragraphSettings.fontWeight,
+      color: template.paragraphSettings.color,
+      content: template.paragraphSettings.content,
     };
     switch (template.id) {
       case "letter":

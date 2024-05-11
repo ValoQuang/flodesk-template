@@ -1,4 +1,4 @@
-import { SetStateAction } from "react";
+import { MouseEventHandler, SetStateAction } from "react";
 import "./Navbar.css";
 import { useTemplateContext } from "../../AppContextProvider";
 import { Template } from "../../types";
@@ -40,23 +40,22 @@ const Navbar = () => {
     templateList[foundIndex] = template!;
   };
 
+  const renderButton = (title: string, onClick: MouseEventHandler<HTMLButtonElement> | undefined) => {
+    return (
+      <button className="navbar-button" onClick={onClick}>
+        {title}
+      </button>
+    );
+  };
+
   return (
     <div className="navbar">
       <div className="navbar-container">
         <h3>{template?.title}</h3>
         <section>
-          <button
-            className="navbar-button"
-            onClick={handleBackToTemplateSelector}
-          >
-            Back
-          </button>
-          <button className="navbar-button" onClick={handleSaveTemplate}>
-            Save
-          </button>
-          <button className="navbar-button" onClick={handleExportStaticPage}>
-            Export
-          </button>
+          {renderButton("Back", handleBackToTemplateSelector)}
+          {renderButton("Save", handleSaveTemplate)}
+          {renderButton("Export", handleExportStaticPage)}
         </section>
       </div>
     </div>

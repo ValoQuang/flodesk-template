@@ -8,7 +8,7 @@ const mockTemplates: Template[] = [
     contentWidth: "80%",
     headingSettings: {
       fontSize: "24px",
-      fontWeight: "Bold",
+      fontWeight: "bold",
       color: "#333333",
       content: "Header template 1",
     },
@@ -25,7 +25,7 @@ const mockTemplates: Template[] = [
     contentWidth: "70%",
     headingSettings: {
       fontSize: "28px",
-      fontWeight: "Bold",
+      fontWeight: "bold",
       color: "#444444",
       content: "Header template 2",
     },

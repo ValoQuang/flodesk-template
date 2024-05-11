@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ColorResult, SketchPicker } from "react-color";
 import { useTemplateContext } from "../../AppContextProvider";
-import "./PageSetting.css"
+import "./Setting.css";
 
 const PageSetting = () => {
   const { template, updateTemplateSettings } = useTemplateContext();

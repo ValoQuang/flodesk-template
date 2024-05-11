@@ -2,8 +2,7 @@ import { useState } from "react";
 import { useTemplateContext } from "../../AppContextProvider";
 import { ColorResult, SketchPicker } from "react-color";
 import "./Setting.css";
-
-const fontWeightOption = ["lighter","normal", "bold"];
+import { fontWeightOption } from "../../mockData";
 
 const HeaderSetting = () => {
   const { template, updateTemplateSettings } = useTemplateContext();

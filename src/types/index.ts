@@ -15,6 +15,14 @@ export interface ElementSettings {
   fontWeight?: string;
   content: string;
 }
+
+export interface TemplateProps {
+  templateStyle: React.CSSProperties;
+  headerStyle: ElementSettings;
+  paragraphStyle: ElementSettings;
+  template: Template;
+  currentElement: string | null;
+}
 export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;

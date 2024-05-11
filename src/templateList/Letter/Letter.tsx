@@ -1,16 +1,8 @@
 import React from "react";
 import "./Letter.css";
-import { Template, ElementSettings } from "../../types";
+import { TemplateProps } from "../../types";
 
-interface LetterProps {
-  templateStyle: React.CSSProperties;
-  headerStyle: ElementSettings;
-  paragraphStyle: ElementSettings;
-  template: Template;
-  currentElement: string | null;
-}
-
-const TemplateLetter: React.FC<LetterProps> = ({
+const TemplateLetter: React.FC<TemplateProps> = ({
   templateStyle,
   headerStyle,
   paragraphStyle,

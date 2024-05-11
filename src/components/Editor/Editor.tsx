@@ -1,7 +1,6 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import "./Editor.css";
 import { useTemplateContext } from "../../AppContextProvider";
-import { ColorResult } from "react-color";
 import PageSetting from "../Settings/PageSetting";
 import HeaderSetting from "../Settings/HeaderSetting";
 import ParagraphSetting from "../Settings/ParagraphSetting";
@@ -22,7 +21,7 @@ const TemplateEditor = () => {
       default:
         return <PageSetting />;
     }
-  }, [currentElement]);
+  }, [template, currentElement]);
 
   return (
     <div className="templateEditor">

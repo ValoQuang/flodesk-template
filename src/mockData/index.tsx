@@ -1,5 +1,7 @@
 import { Template } from "../types";
 
+const fontWeightOption = ["lighter","normal", "bold"];
+
 const mockTemplates: Template[] = [
   {
     id: 'letter',
@@ -37,4 +39,4 @@ const mockTemplates: Template[] = [
   },
 ];
 
-export { mockTemplates };
+export { mockTemplates, fontWeightOption };

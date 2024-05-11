@@ -1,23 +1,15 @@
 import React from "react";
 import "./Resume.css";
-import { Template, ElementSettings } from "../../types";
+import { ElementSettings, TemplateProps } from "../../types";
 
-interface LetterProps {
-  templateStyle: React.CSSProperties;
-  headerStyle: ElementSettings;
-  paragraphStyle: ElementSettings;
-  template: Template;
-  currentElement: string | null;
-}
-
-const TemplateResume: React.FC<LetterProps> = ({
+const TemplateResume: React.FC<TemplateProps> = ({
   templateStyle,
   headerStyle,
   paragraphStyle,
   template,
   currentElement,
 }) => {
-  const renderContent = (style: any, content: string, id: string) => (
+  const renderContent = (style: React.CSSProperties | ElementSettings | undefined, content: string, id: string) => (
     <div
       className="letter"
       id={id}

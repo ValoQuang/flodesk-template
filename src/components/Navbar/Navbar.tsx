@@ -12,6 +12,11 @@ const Navbar = () => {
   } = useTemplateContext();
 
   const handleBackToTemplateSelector = () => {
+    const foundIndex = templatesList.findIndex(
+      (target) => target.id === currentTemplate?.id
+    );
+    templatesList[foundIndex] = currentTemplate!;
+
     setCurrentTemplate(null as unknown as SetStateAction<Template>);
     setCurrentElement(null);
   };
@@ -40,14 +45,6 @@ const Navbar = () => {
     });
   };
 
-  const handleSaveTemplate = () => {
-    const foundIndex = templatesList.findIndex(
-      (target) => target.id === currentTemplate?.id
-    );
-    templatesList[foundIndex] = currentTemplate!;
-    window.alert("Your work is saved for this session.");
-  };
-
   const renderButton = (
     title: string,
     onClick: MouseEventHandler<HTMLButtonElement> | undefined
@@ -65,7 +62,6 @@ const Navbar = () => {
         <h3>{currentTemplate?.title}</h3>
         <section>
           {renderButton("Back", handleBackToTemplateSelector)}
-          {renderButton("Save", handleSaveTemplate)}
           {renderButton("Export", handleExportStaticPage)}
         </section>
       </div>

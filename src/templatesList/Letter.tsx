@@ -1,6 +1,6 @@
 import React from "react";
-import { ElementSettings, TemplateProps } from "../../types";
-import { ELEMENT_TAG } from "../../enum";
+import { ElementSettings, TemplateProps } from "../types";
+import { ELEMENT_TAG } from "../enum";
 
 const TemplateLetter: React.FC<TemplateProps> = ({
   templateDynamicVariables,
@@ -36,9 +36,13 @@ const TemplateLetter: React.FC<TemplateProps> = ({
     height: "90vh",
     overflow: "scroll",
     borderStyle:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "solid" : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
+        ? "solid"
+        : "",
     borderWidth:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "1.5px" : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
+        ? "1.5px"
+        : "",
     ...templateDynamicVariables.currentTemplate,
   };
 

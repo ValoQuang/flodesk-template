@@ -1,6 +1,6 @@
 import React from "react";
-import { ElementSettings, TemplateProps } from "../../types";
-import { ELEMENT_TAG } from "../../enum";
+import { ElementSettings, TemplateProps } from "../types";
+import { ELEMENT_TAG } from "../enum";
 
 const TemplateResume: React.FC<TemplateProps> = ({
   templateDynamicVariables,
@@ -36,9 +36,13 @@ const TemplateResume: React.FC<TemplateProps> = ({
     overflow: "scroll",
     backgroundColor: "red",
     borderStyle:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "solid" : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
+        ? "solid"
+        : "",
     borderWidth:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE ? "1px" : "",
+      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
+        ? "1px"
+        : "",
     ...templateDynamicVariables.currentTemplate,
   };
 

@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import "./Preview.css";
 import { useTemplateContext } from "../../AppContextProvider";
-import Letter from "../../templatesList/Letter/Letter";
-import Resume from "../../templatesList/Resume/Resume";
+import Letter from "../../templatesList/Letter";
+import Resume from "../../templatesList/Resume";
 import "./Preview.css";
 import { ELEMENT_TAG } from "../../enum";
 

@@ -10,6 +10,7 @@ const Navbar = () => {
     setCurrentElement,
     setCurrentTemplate,
     templatesList,
+    updateTemplateSettings,
   } = useTemplateContext();
 
   const handleBackToTemplateSelector = () => {
@@ -44,6 +45,16 @@ const Navbar = () => {
       });
   };
 
+  const handleTemplateTitle = (content: { target: { value: string } }) => {
+    const newTitle = content.target.value;
+    if (newTitle) {
+      updateTemplateSettings({
+        property: "title",
+        value: newTitle,
+      });
+    }
+  };
+
   const renderButton = (
     title: string,
     onClick: MouseEventHandler<HTMLButtonElement> | undefined
@@ -58,7 +69,15 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <h3>{currentTemplate?.title}</h3>
+        <section>
+          <input
+            className="navbar-input-header"
+            type="text"
+            onChange={handleTemplateTitle}
+            value={currentTemplate?.title}
+          />
+        </section>
+
         <section>
           {renderButton("Back", handleBackToTemplateSelector)}
           {renderButton("Export", handleExportStaticPage)}

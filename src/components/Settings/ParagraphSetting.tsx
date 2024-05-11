@@ -61,7 +61,7 @@ const ParagraphSetting = () => {
   return (
     <div>
       <section className="page-setting-picker">
-        <span>Paragraph Color</span>
+        <span>Paragraph color</span>
         <div
           style={{
             backgroundColor: currentTemplate?.paragraphSettings.color,

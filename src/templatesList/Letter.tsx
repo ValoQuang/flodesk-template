@@ -6,7 +6,7 @@ const TemplateLetter: React.FC<TemplateProps> = ({
   templateDynamicVariables,
 }) => {
   const renderContent = (
-    style: React.CSSProperties | ElementSettings | undefined,
+    style: React.CSSProperties | ElementSettings,
     content: string,
     id: string
   ) => (

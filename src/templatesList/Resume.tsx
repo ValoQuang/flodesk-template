@@ -6,7 +6,7 @@ const TemplateResume: React.FC<TemplateProps> = ({
   templateDynamicVariables,
 }) => {
   const renderContent = (
-    style: React.CSSProperties | ElementSettings | undefined,
+    style: React.CSSProperties | ElementSettings,
     content: string,
     id: string
   ) => (
@@ -24,7 +24,6 @@ const TemplateResume: React.FC<TemplateProps> = ({
     </div>
   );
   const resumeContainerStyle: CSSProperties = {
-    alignItems: "center",
     textAlign: "center",
     display: "flex",
     fontFamily:

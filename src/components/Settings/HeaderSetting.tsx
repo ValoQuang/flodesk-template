@@ -62,7 +62,7 @@ const HeaderSetting = () => {
   return (
     <div>
       <section className="page-setting-picker">
-        <span>Header Color</span>
+        <span>Header color</span>
         <div
           style={{
             backgroundColor: currentTemplate?.headerSettings.color,

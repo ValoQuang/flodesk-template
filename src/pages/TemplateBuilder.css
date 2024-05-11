@@ -24,6 +24,7 @@
 
   .templateBuilder-display {
     width: 100%;
+    flex-grow: 1;
     border-right-style: none;
   }
 

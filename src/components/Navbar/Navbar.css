@@ -17,7 +17,7 @@
 }
 
 .navbar-input-header {
-  height:24px;
+  height: 24px;
   font-size: 22px;
   border-style: hidden;
   font-weight: bold;
@@ -35,4 +35,23 @@
 .navbar-button:hover {
   background-color: #e0e0e0;
   border-color: #999;
+}
+
+@media only screen and (max-width: 600px) {
+  .navbar-container {
+    width: 100%;
+    border-right-style: none;
+    margin: 10px 0px 10px 0px;
+    justify-content: space-around;
+  }
+
+  .navbar-container section {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .navbar-input-header {
+    width: 50%;
+    border-style: hidden;
+  }
 }

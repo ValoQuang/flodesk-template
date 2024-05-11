@@ -7,8 +7,12 @@ import "./Preview.css";
 import { ELEMENT_TAG } from "../../enum";
 
 const Preview = () => {
-  const { exportRef, currentTemplate, setCurrentElement, currentElementTag } =
-    useTemplateContext();
+  const {
+    exportRef,
+    currentTemplate,
+    setCurrentElementTag,
+    currentElementTag,
+  } = useTemplateContext();
 
   const captureClickElement = useCallback(
     (event: any) => {
@@ -19,12 +23,12 @@ const Preview = () => {
       ];
       const clickedId = event.target.id;
       if (validIds.includes(clickedId)) {
-        setCurrentElement(clickedId);
+        setCurrentElementTag(clickedId);
       } else {
-        setCurrentElement(ELEMENT_TAG.PAGE);
+        setCurrentElementTag(ELEMENT_TAG.PAGE);
       }
     },
-    [setCurrentElement]
+    [setCurrentElementTag]
   );
 
   const renderTemplate = useCallback(() => {

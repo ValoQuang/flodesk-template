@@ -36,9 +36,9 @@ export interface TemplateContextType {
   updateTemplateSettings: Dispatch<
     SetStateAction<UpdateTemplateSettingsAction>
   >;
-  setCurrentElement: Dispatch<SetStateAction<string | null>>;
+  setCurrentElementTag: Dispatch<SetStateAction<string | null>>;
   currentElementTag?: string | null;
   templatesList: Template[] | [];
-  fetchTemplateList: Dispatch<SetStateAction<Template[] | null>>;
+  setTemplatesList: Dispatch<SetStateAction<Template[] | null>>;
   exportRef?: any;
 }

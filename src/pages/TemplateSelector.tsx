@@ -10,7 +10,7 @@ const TemplateSelector: React.FC = () => {
     currentTemplate,
     setCurrentTemplate,
     templatesList,
-    fetchTemplateList,
+    setTemplatesList,
   } = useTemplateContext();
 
   const handleSelectTemplate = (currentTemplate: Template) => {
@@ -19,7 +19,7 @@ const TemplateSelector: React.FC = () => {
 
   useEffect(() => {
     //I created context here to simulate the API call from backend to fetch currentTemplate list.
-    fetchTemplateList(mockTemplates);
+    setTemplatesList(mockTemplates);
   }, []);
 
   const renderTemplateBuilder = (children: ReactNode) => {

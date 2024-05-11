@@ -23,9 +23,9 @@ export const defaultValue: TemplateContextType = {
     },
   },
   setCurrentTemplate: () => {},
-  fetchTemplateList: () => {},
+  setTemplatesList: () => {},
   updateTemplateSettings: () => {},
-  setCurrentElement: () => {},
+  setCurrentElementTag: () => {},
 };
 
 const TemplateContext = createContext<TemplateContextType>(defaultValue);
@@ -33,22 +33,12 @@ const TemplateContext = createContext<TemplateContextType>(defaultValue);
 export const useTemplateContext = () => useContext(TemplateContext);
 
 export const TemplateProvider = ({ children }: { children: ReactNode }) => {
-  const [currentElementTag, setCurrentEl] = useState<string | null>(
+  const [currentElementTag, setCurrentElementTag] = useState<string | null>(
     ELEMENT_TAG.PAGE
   );
   const [currentTemplate, setCurrentTemplate] = useState<Template | null>(null);
-  const [templatesList, setTemplateList] = useState<Template[]>([]);
+  const [templatesList, setTemplatesList] = useState<Template[]>([]);
   const exportRef = useRef(null);
-
-  const setCurrentElement = (newEl: string | null) => {
-    if (currentTemplate) {
-      setCurrentEl(newEl);
-    }
-  };
-
-  const fetchTemplateList = (data: Template[]) => {
-    setTemplateList(data);
-  };
 
   const updateTemplateSettings = (settings: {
     property: string;
@@ -70,11 +60,11 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
           currentTemplate,
           setCurrentTemplate,
           updateTemplateSettings,
-          setCurrentElement,
+          setCurrentElementTag,
           currentElementTag,
           templatesList,
-          fetchTemplateList,
-          exportRef
+          setTemplatesList,
+          exportRef,
         } as TemplateContextType
       }
     >

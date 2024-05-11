@@ -7,7 +7,7 @@ const Navbar = () => {
   const {
     exportRef,
     currentTemplate,
-    setCurrentElement,
+    setCurrentElementTag,
     setCurrentTemplate,
     templatesList,
     updateTemplateSettings,
@@ -20,13 +20,13 @@ const Navbar = () => {
     templatesList[foundIndex] = currentTemplate!;
 
     setCurrentTemplate(null as unknown as SetStateAction<Template>);
-    setCurrentElement(null);
+    setCurrentElementTag(null);
   };
 
   const handleExportStaticPage = () => {
     if (exportRef.current)
       return new Promise<void>((resolve, _) => {
-        setCurrentElement(null);
+        setCurrentElementTag(null);
         resolve();
       }).then(() => {
         const elementHTML = exportRef.current.outerHTML;
@@ -69,14 +69,12 @@ const Navbar = () => {
   return (
     <div className="navbar">
       <div className="navbar-container">
-        <section>
-          <input
-            className="navbar-input-header"
-            type="text"
-            onChange={handleTemplateTitle}
-            value={currentTemplate?.title}
-          />
-        </section>
+        <input
+          className="navbar-input-header"
+          type="text"
+          onChange={handleTemplateTitle}
+          value={currentTemplate?.title}
+        />
 
         <section>
           {renderButton("Back", handleBackToTemplateSelector)}

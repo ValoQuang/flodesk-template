@@ -18,7 +18,6 @@ const Preview = () => {
         ELEMENT_TAG.PARAGRAPH,
       ];
       const clickedId = event.target.id;
-
       if (validIds.includes(clickedId)) {
         setCurrentElement(clickedId);
       } else {

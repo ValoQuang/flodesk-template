@@ -4,25 +4,36 @@ import { useTemplateContext } from "../../AppContextProvider";
 import { Template } from "../../types";
 
 const Navbar = () => {
-  const { template, setTemplate } = useTemplateContext();
+  const { template, setCurrentElement, setTemplate } = useTemplateContext();
   const handleBackToTemplateSelector = () => {
     setTemplate(null as unknown as SetStateAction<Template>);
   };
 
   const handleExportStaticPage = () => {
-    const element = document.getElementById("export-static-page");
-    if (element) {
-      const elementHTML = element.outerHTML;
-      const file = new Blob([elementHTML], { type: "text/html" });
-      const url = URL.createObjectURL(file);
-      const downloadLink = document.createElement("a");
+    return new Promise<void>((resolve, _) => {
+        setCurrentElement(null);
+        resolve();
+    })
+    .then(() => {
+        const element = document.getElementById("export-static-page");
+        if (element) {
+            const elementHTML = element.outerHTML;
+            const file = new Blob([elementHTML], { type: "text/html" });
+            const url = URL.createObjectURL(file);
+            const downloadLink = document.createElement("a");
+            downloadLink.href = url;
+            downloadLink.download = `${template?.title}.html`;
+            downloadLink.click();
+            URL.revokeObjectURL(url);
 
-      downloadLink.href = url;
-      downloadLink.download = `${template?.title}.html`;
-      downloadLink.click();
-      URL.revokeObjectURL(url);
-    }
-  };
+            const newWindow = window.open();
+            if (newWindow) {
+                newWindow.document.write(elementHTML);
+            }
+        }
+    });
+};
+
 
   return (
     <div className="navbar">

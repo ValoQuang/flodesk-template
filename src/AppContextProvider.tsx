@@ -32,7 +32,7 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
   const [currentEl, setCurrentEl] = useState<string | null>(null);
   const [template, setTemplate] = useState<Template | null>(null);
 
-  const setCurrentElement = (newEl: string) => {
+  const setCurrentElement = (newEl: string | null) => {
     if (template) {
       setCurrentEl(newEl);
     }

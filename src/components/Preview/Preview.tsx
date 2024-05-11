@@ -7,7 +7,7 @@ import "./Preview.css";
 import { ELEMENT_TAG } from "../../enum";
 
 const Preview = () => {
-  const { currentTemplate, setCurrentElement, currentElementTag } =
+  const { exportRef, currentTemplate, setCurrentElement, currentElementTag } =
     useTemplateContext();
 
   const captureClickElement = useCallback(
@@ -65,6 +65,7 @@ const Preview = () => {
       className="preview"
       id="export-static-page"
       onClick={captureClickElement}
+      ref={exportRef}
     >
       {renderTemplate()}
     </div>

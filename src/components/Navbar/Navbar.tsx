@@ -5,6 +5,7 @@ import { Template } from "../../types";
 
 const Navbar = () => {
   const {
+    exportRef,
     currentTemplate,
     setCurrentElement,
     setCurrentTemplate,
@@ -22,13 +23,12 @@ const Navbar = () => {
   };
 
   const handleExportStaticPage = () => {
-    return new Promise<void>((resolve, _) => {
-      setCurrentElement(null);
-      resolve();
-    }).then(() => {
-      const element = document.getElementById("export-static-page");
-      if (element) {
-        const elementHTML = element.outerHTML;
+    if (exportRef.current)
+      return new Promise<void>((resolve, _) => {
+        setCurrentElement(null);
+        resolve();
+      }).then(() => {
+        const elementHTML = exportRef.current.outerHTML;
         const file = new Blob([elementHTML], { type: "text/html" });
         const url = URL.createObjectURL(file);
         const downloadLink = document.createElement("a");
@@ -41,8 +41,7 @@ const Navbar = () => {
         if (newWindow) {
           newWindow.document.write(elementHTML);
         }
-      }
-    });
+      });
   };
 
   const renderButton = (

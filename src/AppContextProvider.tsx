@@ -1,8 +1,9 @@
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, ReactNode, useRef } from "react";
 import { Template, TemplateContextType } from "./types";
 import { ELEMENT_TAG } from "./enum";
 
 export const defaultValue: TemplateContextType = {
+  exportRef: null,
   templatesList: [],
   currentTemplate: {
     id: "",
@@ -37,6 +38,7 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
   );
   const [currentTemplate, setCurrentTemplate] = useState<Template | null>(null);
   const [templatesList, setTemplateList] = useState<Template[]>([]);
+  const exportRef = useRef(null);
 
   const setCurrentElement = (newEl: string | null) => {
     if (currentTemplate) {
@@ -72,6 +74,7 @@ export const TemplateProvider = ({ children }: { children: ReactNode }) => {
           currentElementTag,
           templatesList,
           fetchTemplateList,
+          exportRef
         } as TemplateContextType
       }
     >

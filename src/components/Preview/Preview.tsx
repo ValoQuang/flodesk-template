@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import { MouseEvent, useCallback } from "react";
 import "./Preview.css";
 import { useTemplateContext } from "../../AppContextProvider";
 import Letter from "../../templateList/Letter/Letter";

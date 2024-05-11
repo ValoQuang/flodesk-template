@@ -1,6 +1,6 @@
 import React from "react";
 import "./Letter.css";
-import { TemplateProps } from "../../types";
+import { ElementSettings, TemplateProps } from "../../types";
 
 const TemplateLetter: React.FC<TemplateProps> = ({
   templateStyle,
@@ -9,7 +9,7 @@ const TemplateLetter: React.FC<TemplateProps> = ({
   template,
   currentElement,
 }) => {
-  const renderContent = (style: any, content: string, id: string) => (
+  const renderContent = (style: React.CSSProperties | ElementSettings | undefined, content: string, id: string) => (
     <div
       className="letter"
       id={id}

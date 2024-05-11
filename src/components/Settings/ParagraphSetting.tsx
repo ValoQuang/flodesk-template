@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTemplateContext } from "../../AppContextProvider";
 import { ColorResult, SketchPicker } from "react-color";
 import { fontWeightOption } from "../../mockData";
+import { ElementSettings } from "../../types";
 
 const ParagraphSetting = () => {
   const { template, updateTemplateSettings } = useTemplateContext();
@@ -16,7 +17,7 @@ const ParagraphSetting = () => {
     if (newSize)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, fontSize: `${newSize}px` },
+        value: { ...template?.paragraphSettings, fontSize: `${newSize}px` } as ElementSettings,
       });
   };
 
@@ -24,7 +25,7 @@ const ParagraphSetting = () => {
     if (newWeight)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, fontWeight: newWeight },
+        value: { ...template?.paragraphSettings, fontWeight: newWeight } as ElementSettings,
       });
   };
 
@@ -33,7 +34,7 @@ const ParagraphSetting = () => {
     if (newContent)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, content: newContent },
+        value: { ...template?.paragraphSettings, content: newContent } as ElementSettings,
       });
   };
 
@@ -41,7 +42,7 @@ const ParagraphSetting = () => {
     if (color.hex)
       updateTemplateSettings({
         property: "paragraphSettings",
-        value: { ...template?.paragraphSettings, color: color.hex },
+        value: { ...template?.paragraphSettings, color: color.hex } as ElementSettings,
       });
   };
 

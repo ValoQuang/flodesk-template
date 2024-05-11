@@ -3,6 +3,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import { ColorResult, SketchPicker } from "react-color";
 import "./Setting.css";
 import { fontWeightOption } from "../../mockData";
+import { ElementSettings } from "../../types";
 
 const HeaderSetting = () => {
   const { template, updateTemplateSettings } = useTemplateContext();
@@ -17,7 +18,7 @@ const HeaderSetting = () => {
     if (newSize)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, fontSize: `${newSize}px` },
+        value: { ...template?.headingSettings, fontSize: `${newSize}px` } as ElementSettings,
       });
   };
 
@@ -25,7 +26,7 @@ const HeaderSetting = () => {
     if (newWeight)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, fontWeight: newWeight },
+        value: { ...template?.headingSettings, fontWeight: newWeight } as ElementSettings,
       });
   };
 
@@ -34,7 +35,7 @@ const HeaderSetting = () => {
     if (newHeadline)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, content: newHeadline },
+        value: { ...template?.headingSettings, content: newHeadline } as ElementSettings,
       });
   };
 
@@ -42,7 +43,7 @@ const HeaderSetting = () => {
     if (color.hex)
       updateTemplateSettings({
         property: "headingSettings",
-        value: { ...template?.headingSettings, color: color.hex },
+        value: { ...template?.headingSettings, color: color.hex } as ElementSettings,
       });
   };
 

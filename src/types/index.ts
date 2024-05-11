@@ -21,14 +21,19 @@ export interface TemplateProps {
   headerStyle: ElementSettings;
   paragraphStyle: ElementSettings;
   template: Template;
-  currentElement: string | null;
+  currentElement?: string | null;
+}
+
+interface UpdateTemplateSettingsAction {
+  property: keyof Template;
+  value: Template[keyof Template]
 }
 export interface TemplateContextType {
   template: Template | null;
   setTemplate: Dispatch<SetStateAction<Template>>;
-  updateTemplateSettings: Dispatch<SetStateAction<any>>;
-  setCurrentElement: Dispatch<SetStateAction<any>>;
-  currentElement?: string | null | any;
+  updateTemplateSettings: Dispatch<SetStateAction<UpdateTemplateSettingsAction>>;
+  setCurrentElement: Dispatch<SetStateAction<string | null>>;
+  currentElement?: string | null;
   templateList: Template[] | [];
-  fetchTemplateList: any;
+  fetchTemplateList: Dispatch<SetStateAction<Template[] | null>>;
 }

@@ -6,12 +6,7 @@ import "./TemplateSelector.css";
 import TemplateBuilder from "./TemplateBuilder";
 
 const TemplateSelector: React.FC = () => {
-  const {
-    currentTemplate,
-    setCurrentTemplate,
-    templatesList,
-    setTemplatesList,
-  } = useTemplateContext();
+  const { currentTemplate, setCurrentTemplate, templatesList, setTemplatesList } = useTemplateContext();
 
   const handleSelectTemplate = (currentTemplate: Template) => {
     setCurrentTemplate(currentTemplate);

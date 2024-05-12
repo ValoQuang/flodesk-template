@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { CSSProperties, Dispatch, SetStateAction } from "react";
 
 export interface Template {
   id: string;
@@ -16,6 +16,7 @@ export interface ElementSettings {
   content: string;
 }
 export interface TemplateProps {
+  layoutProperties?: CSSProperties;
   currentTemplate: Template;
   currentElementTag: string | null | undefined;
 }

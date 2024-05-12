@@ -4,14 +4,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import { Template } from "../../types";
 
 const Navbar = () => {
-  const {
-    exportRef,
-    currentTemplate,
-    setCurrentElementTag,
-    setCurrentTemplate,
-    templatesList,
-    updateTemplateSettings,
-  } = useTemplateContext();
+  const { exportRef, currentTemplate, templatesList, setCurrentElementTag, setCurrentTemplate, updateTemplateSettings } = useTemplateContext();
 
   const handleBackToTemplateSelector = () => {
     const foundIndex = templatesList.findIndex(
@@ -55,10 +48,7 @@ const Navbar = () => {
     }
   };
 
-  const renderButton = (
-    title: string,
-    onClick: MouseEventHandler<HTMLButtonElement> | undefined
-  ) => {
+  const renderButton = (title: string, onClick: MouseEventHandler<HTMLButtonElement> | undefined) => {
     return (
       <button className="navbar-button" onClick={onClick}>
         {title}

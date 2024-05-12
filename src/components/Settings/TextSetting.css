@@ -8,3 +8,9 @@
   padding: 10px 0px 10px 0px;
   margin: 10px 10px 10px 10px;
 }
+
+.page-setting-sketch {
+  position: absolute;
+  top:100%;
+  z-index: 999;
+}

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ColorResult, SketchPicker } from "react-color";
 import { useTemplateContext } from "../../AppContextProvider";
-import "./Setting.css";
+import "./TextSetting.css";
 
 const PageSetting = () => {
   const { currentTemplate, updateTemplateSettings } = useTemplateContext();
@@ -39,7 +39,7 @@ const PageSetting = () => {
         ></div>
         {picker && (
           <SketchPicker
-            className="templateEditor-sketch"
+            className="page-setting-sketch"
             color={currentTemplate?.backgroundColor}
             onChangeComplete={handleColorChange}
           />

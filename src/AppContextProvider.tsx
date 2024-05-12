@@ -15,11 +15,13 @@ export const defaultValue: TemplateContextType = {
       fontWeight: "",
       color: "",
       content: "",
+      lineHeight: "",
     },
     paragraphSettings: {
       fontSize: "",
       color: "",
       content: "",
+      lineHeight: "",
     },
   },
   setCurrentTemplate: () => {},

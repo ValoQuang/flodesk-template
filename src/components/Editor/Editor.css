@@ -3,6 +3,8 @@
   border-style: solid;
   border-width: 1px;
   border-radius: 5px;
+  overflow: scroll;
+  height: 90vh;
 }
 
 .templateEditor-sketch {

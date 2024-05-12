@@ -1,7 +1,7 @@
 .preview {
     display: flex;
     align-items: center;
-    height: fit-content;
+    height: 90vh;
     flex-direction: column;
     margin: 10px 0px 10px 0px;
     overflow: hidden;

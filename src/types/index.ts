@@ -14,6 +14,7 @@ export interface ElementSettings {
   color: string;
   fontWeight?: string;
   content: string;
+  lineHeight: string;
 }
 export interface TemplateProps {
   layoutProperties?: CSSProperties;

@@ -3,13 +3,15 @@ import { ColorResult, SketchPicker } from "react-color";
 import { fontWeightOption } from "../../mockData";
 import { ElementSettings } from "../../types";
 import "./TextSetting.css";
+import { ELEMENT_TAG, TEMPLATE_ID } from "../../enum";
 
 interface TextSettingProps {
+  currentElementTag?: any,
   settings: ElementSettings;
   onUpdateSettings: (newSettings: ElementSettings) => void;
 }
 
-const TextSetting: React.FC<TextSettingProps> = ({ settings, onUpdateSettings }) => {
+const TextSetting: React.FC<TextSettingProps> = ({ currentElementTag, settings, onUpdateSettings }) => {
   const [picker, setPicker] = useState<boolean>(false);
 
   const handleOpenPicker = () => {
@@ -31,6 +33,14 @@ const TextSetting: React.FC<TextSettingProps> = ({ settings, onUpdateSettings })
       fontWeight: newWeight,
     });
   };
+
+  const handleLineHeight = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newHeight = event.target.value;
+    onUpdateSettings({
+      ...settings,
+      lineHeight: newHeight,
+    });
+  }
 
   const handleContent = (content: React.ChangeEvent<HTMLTextAreaElement>) => {
     const newContent = content.target.value;
@@ -78,7 +88,7 @@ const TextSetting: React.FC<TextSettingProps> = ({ settings, onUpdateSettings })
           step="1"
           onChange={handleFontSize}
           value={parseInt(settings.fontSize)}
-        ></input>
+        />
       </section>
 
       <section className="page-setting-picker">
@@ -95,6 +105,20 @@ const TextSetting: React.FC<TextSettingProps> = ({ settings, onUpdateSettings })
           </div>
         ))}
       </section>
+        
+      {currentElementTag !== ELEMENT_TAG.HEADER && (
+        <section className="page-setting-picker">
+        <span>Height between line</span>
+        <input
+          type="range"
+          min="1.5"
+          max="8"
+          step="0.5"
+          onChange={handleLineHeight}
+          value={settings.lineHeight}
+        />
+      </section>
+      )}
 
       <section className="page-setting-picker">
         <span>Text content</span>

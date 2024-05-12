@@ -4,7 +4,7 @@ import { useTemplateContext } from "../../AppContextProvider";
 import Letter from "../../templatesList/Letter";
 import Resume from "../../templatesList/Resume";
 import "./Preview.css";
-import { ELEMENT_TAG } from "../../enum";
+import { ELEMENT_TAG, TEMPLATE_ID } from "../../enum";
 
 const Preview = () => {
   const { exportRef, currentTemplate, setCurrentElementTag,currentElementTag } = useTemplateContext();
@@ -28,11 +28,10 @@ const Preview = () => {
 
   const renderTemplate = useCallback(() => {
     if (!currentTemplate) return null;
-
     switch (currentTemplate.id) {
-      case "letter":
+      case TEMPLATE_ID.LETTER:
         return <Letter currentElementTag={currentElementTag} currentTemplate={currentTemplate} />;
-      case "resume":
+      case TEMPLATE_ID.RESUME:
         return <Resume currentElementTag={currentElementTag} currentTemplate={currentTemplate} />;
       default:
         return null;

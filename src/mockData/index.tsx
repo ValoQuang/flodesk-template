@@ -1,10 +1,11 @@
+import { TEMPLATE_ID } from "../enum";
 import { Template } from "../types";
 
 const fontWeightOption = ["lighter", "normal", "bold"];
 
 const mockTemplates: Template[] = [
   {
-    id: "letter",
+    id: TEMPLATE_ID.LETTER,
     title: "Template Letter",
     backgroundColor: "#f3cb15",
     contentWidth: "55%",
@@ -22,7 +23,7 @@ const mockTemplates: Template[] = [
     },
   },
   {
-    id: "resume",
+    id: TEMPLATE_ID.RESUME,
     title: "Template Resume",
     backgroundColor: "#dbf07f",
     contentWidth: "90%",

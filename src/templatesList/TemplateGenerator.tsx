@@ -11,7 +11,7 @@ const TemplateGenerator: React.FC<TemplateProps> = ({ layoutProperties, currentT
     <div
       id={id}
       style={{
-        borderStyle: currentElementTag === id ? "solid" : "",
+        borderStyle: currentElementTag === id ? "dotted" : "",
         borderWidth: currentElementTag === id ? "1px" : "",
         ...style,
       }}
@@ -22,10 +22,9 @@ const TemplateGenerator: React.FC<TemplateProps> = ({ layoutProperties, currentT
 
   const templateContainerStyle: CSSProperties = {
     ...layoutProperties,
-
     //Dynamic prop below this comment
-    borderStyle: currentElementTag === ELEMENT_TAG.PAGE ? "solid" : "",
-    borderWidth: currentElementTag === ELEMENT_TAG.PAGE ? "1.5px" : "",
+    borderStyle: currentElementTag === ELEMENT_TAG.PAGE ? "dotted" : "",
+    borderWidth: currentElementTag === ELEMENT_TAG.PAGE ? "1px" : "",
     maxWidth: currentTemplate.contentWidth,
     backgroundColor: currentTemplate.backgroundColor
   };

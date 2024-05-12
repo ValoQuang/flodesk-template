@@ -99,7 +99,7 @@ const TextSetting: React.FC<TextSettingProps> = ({ settings, onUpdateSettings })
       <section className="page-setting-picker">
         <span>Text content</span>
         <textarea
-          style={{ width: "80%", height: "50px" }}
+          style={{ width: "250px", height: "200px" }}
           onChange={handleContent}
           value={settings.content}
         />

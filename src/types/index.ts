@@ -15,15 +15,9 @@ export interface ElementSettings {
   fontWeight?: string;
   content: string;
 }
-
-interface TemplateDynamicVariables {
-  currentTemplate: React.CSSProperties;
-  header: ElementSettings;
-  paragraph: ElementSettings;
-  currentElementTag: string | null | undefined;
-}
 export interface TemplateProps {
-  templateDynamicVariables: TemplateDynamicVariables;
+  currentTemplate: Template;
+  currentElementTag: string | null | undefined;
 }
 
 interface UpdateTemplateSettingsAction {

@@ -7,12 +7,7 @@ import "./Preview.css";
 import { ELEMENT_TAG } from "../../enum";
 
 const Preview = () => {
-  const {
-    exportRef,
-    currentTemplate,
-    setCurrentElementTag,
-    currentElementTag,
-  } = useTemplateContext();
+  const { exportRef, currentTemplate, setCurrentElementTag,currentElementTag } = useTemplateContext();
 
   const captureClickElement = useCallback(
     (event: any) => {
@@ -34,31 +29,11 @@ const Preview = () => {
   const renderTemplate = useCallback(() => {
     if (!currentTemplate) return null;
 
-    const templateDynamicVariables = {
-      currentElementTag: currentElementTag,
-      currentTemplate: {
-        backgroundColor: currentTemplate.backgroundColor,
-        width: currentTemplate.contentWidth,
-      },
-      header: {
-        fontSize: currentTemplate.headerSettings.fontSize,
-        fontWeight: currentTemplate.headerSettings.fontWeight,
-        color: currentTemplate.headerSettings.color,
-        content: currentTemplate.headerSettings.content,
-      },
-      paragraph: {
-        fontSize: currentTemplate.paragraphSettings.fontSize,
-        fontWeight: currentTemplate.paragraphSettings.fontWeight,
-        color: currentTemplate.paragraphSettings.color,
-        content: currentTemplate.paragraphSettings.content,
-      },
-    };
-
     switch (currentTemplate.id) {
       case "letter":
-        return <Letter templateDynamicVariables={templateDynamicVariables} />;
+        return <Letter currentElementTag={currentElementTag} currentTemplate={currentTemplate} />;
       case "resume":
-        return <Resume templateDynamicVariables={templateDynamicVariables} />;
+        return <Resume currentElementTag={currentElementTag} currentTemplate={currentTemplate} />;
       default:
         return null;
     }
@@ -67,7 +42,6 @@ const Preview = () => {
   return (
     <div
       className="preview"
-      id="export-static-page"
       onClick={captureClickElement}
       ref={exportRef}
     >

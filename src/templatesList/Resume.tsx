@@ -2,9 +2,7 @@ import React, { CSSProperties } from "react";
 import { ElementSettings, TemplateProps } from "../types";
 import { ELEMENT_TAG } from "../enum";
 
-const TemplateResume: React.FC<TemplateProps> = ({
-  templateDynamicVariables,
-}) => {
+const TemplateResume: React.FC<TemplateProps> = ({ currentTemplate, currentElementTag }: TemplateProps) => {
   const renderContent = (
     style: React.CSSProperties | ElementSettings,
     content: string,
@@ -13,16 +11,15 @@ const TemplateResume: React.FC<TemplateProps> = ({
     <div
       id={id}
       style={{
-        borderStyle:
-          templateDynamicVariables.currentElementTag === id ? "solid" : "",
-        borderWidth:
-          templateDynamicVariables.currentElementTag === id ? "1px" : "",
+        borderStyle: currentElementTag === id ? "solid" : "",
+        borderWidth: currentElementTag === id ? "1px" : "",
         ...style,
       }}
     >
       {content}
     </div>
   );
+
   const resumeContainerStyle: CSSProperties = {
     textAlign: "center",
     display: "flex",
@@ -35,15 +32,10 @@ const TemplateResume: React.FC<TemplateProps> = ({
     boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
     height: "90vh",
     overflow: "scroll",
-    borderStyle:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
-        ? "solid"
-        : "",
-    borderWidth:
-      templateDynamicVariables.currentElementTag === ELEMENT_TAG.PAGE
-        ? "1px"
-        : "",
-    ...templateDynamicVariables.currentTemplate,
+    borderStyle: currentElementTag === ELEMENT_TAG.PAGE ? "solid" : "",
+    borderWidth: currentElementTag === ELEMENT_TAG.PAGE ? "1px" : "",
+    maxWidth: currentTemplate.contentWidth,
+    backgroundColor: currentTemplate.backgroundColor
   };
 
   const paragraphContainerStyle: CSSProperties = {
@@ -55,15 +47,15 @@ const TemplateResume: React.FC<TemplateProps> = ({
     <div style={resumeContainerStyle}>
       <header>
         {renderContent(
-          templateDynamicVariables.header,
-          templateDynamicVariables.header.content,
+          currentTemplate.headerSettings,
+          currentTemplate.headerSettings.content,
           ELEMENT_TAG.HEADER
         )}
       </header>
       <p style={paragraphContainerStyle}>
         {renderContent(
-          templateDynamicVariables.paragraph,
-          templateDynamicVariables.paragraph.content,
+          currentTemplate.paragraphSettings,
+          currentTemplate.paragraphSettings.content,
           ELEMENT_TAG.PARAGRAPH
         )}
       </p>

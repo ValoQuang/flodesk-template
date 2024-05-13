@@ -1,6 +1,6 @@
 ### Template builder
 
-[DEMO LINK]([http://flodesk-app.s3-website.eu-north-1.amazonaws.com/]).
+DEMO LINK : http://flodesk-app.s3-website.eu-north-1.amazonaws.com/
 
 <img width="1403" alt="image" src="https://github.com/ValoQuang/flodesk-template/assets/45687913/62504ac2-16ac-4f9c-890f-08f8d44b58a1">
 
